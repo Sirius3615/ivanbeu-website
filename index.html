@@ -9,457 +9,638 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
 
   <style>
-    /* Global Reset & Font */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+  /* Global Reset & Font */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  /* Body and Base Styles */
+  body {
+    background-color: #080808;
+    color: #e0e0e0;
+    line-height: 1.7;
+    overflow-x: hidden;
+    font-family: "Inter", sans-serif;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s ease;
+  }
+
+  ul {
+    list-style: none;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* Smooth Scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* HERO / INTRO SECTION */
+  .hero {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    overflow: hidden; /* Keep overflow hidden on hero */
+    background: linear-gradient(-45deg, #2b5099d0, #2f1161d0, #c93e3ed0, #4a8346d0);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    padding: 20px;
+    min-height: 100vh; /* Change from fixed height to min-height */
+  }
+
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
     }
-
-    /* Body and Base Styles */
-    body {
-      background-color: #080808;
-      color: #e0e0e0;
-      line-height: 1.7;
-      overflow-x: hidden;
-      font-family: "Inter", sans-serif;
+    50% {
+      background-position: 100% 50%;
     }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-      transition: color 0.3s ease;
+    100% {
+      background-position: 0% 50%;
     }
+  }
 
-    ul {
-      list-style: none;
-    }
+  /* Container for our corner gradients */
+  .blob-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.7; /* Slightly reduced opacity to blend with the gradient */
+  }
 
-    img {
-        max-width: 100%;
-        height: auto;
-        display: block;
-    }
+  .blob-container::before,
+  .blob-container::after {
+    content: "";
+    position: absolute;
+    width: 180%;
+    height: 180%;
+    filter: blur(120px);
+    opacity: 0.7;
+    animation-duration: 80s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+  }
 
-    /* Smooth Scrolling */
-    html {
-      scroll-behavior: smooth;
-    }
+  .blob-container::before {
+    background: radial-gradient(
+      circle at 0% 100%,
+      rgba(220, 34, 34, 0.6),
+      rgba(52, 248, 124, 0.6) 20%,
+      transparent 75%
+    );
+    left: -40%;
+    bottom: -40%;
+    transform-origin: bottom left;
+    animation-name: bottomBlob;
+  }
 
-    /* HERO / INTRO SECTION */
-    .hero {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      text-align: center;
-      overflow: hidden; /* Keep overflow hidden on hero */
-      background: linear-gradient(-45deg, #112240, #4a1d96, #0f567a, #0f3e42);
-      background-size: 400% 400%;
-      animation: gradient 15s ease infinite;
-    }
+  .blob-container::after {
+    background: radial-gradient(
+      circle at 100% 0%,
+      rgba(0,191,255,0.6),
+      rgba(41, 12, 225, 0.4) 20%,
+      transparent 75%
+    );
+    right: -40%;
+    top: -40%;
+    transform-origin: top right;
+    animation-name: topBlob;
+  }
 
-    @keyframes gradient {
-      0% {
-        background-position: 0% 50%;
-      }
-      50% {
-        background-position: 100% 50%;
-      }
-      100% {
-        background-position: 0% 50%;
-      }
-    }
+  @keyframes bottomBlob {
+    0% { transform: translate(0, 0) scale(0.9) rotate(0deg); border-radius: 40% 60% 60% 40% / 70% 50% 50% 30%; }
+    33% { transform: translate(-5%, 5%) scale(1) rotate(-30deg); border-radius: 70% 30% 50% 50% / 40% 60% 40% 60%; }
+    66% { transform: translate(5%, -3%) scale(0.95) rotate(-60deg); border-radius: 50% 50% 70% 30% / 60% 40% 60% 40%; }
+    100% { transform: translate(0, 0) scale(0.9) rotate(-90deg); border-radius: 40% 60% 60% 40% / 70% 50% 50% 30%; }
+  }
 
-    /* Removing the old heroColorCycle animation */
+  @keyframes topBlob {
+    0% { transform: translate(0, 0) scale(0.9) rotate(0deg); border-radius: 60% 40% 30% 70% / 50% 70% 30% 50%; }
+    33% { transform: translate(5%, -5%) scale(1) rotate(30deg); border-radius: 30% 70% 45% 55% / 55% 45% 55% 45%; }
+    66% { transform: translate(-3%, 5%) scale(0.95) rotate(60deg); border-radius: 50% 50% 40% 60% / 60% 40% 60% 40%; }
+    100% { transform: translate(0, 0) scale(0.9) rotate(90deg); border-radius: 60% 40% 30% 70% / 50% 70% 30% 50%; }
+  }
 
-    /* Container for our corner gradients */
-    .blob-container {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
-      pointer-events: none;
-      opacity: 0.7; /* Slightly reduced opacity to blend with the gradient */
-    }
+  .hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 0.5em;
+    position: relative;
+    z-index: 1;
+    text-shadow: 0px 3px 6px rgba(0,0,0,0.6);
+    word-wrap: break-word;
+    max-width: 90%; /* Prevent text overflow on small screens */
+  }
+  .hero p {
+    font-size: 1.2rem;
+    position: relative;
+    z-index: 1;
+    text-shadow: 0px 2px 4px rgba(0,0,0,0.5);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #ccc;
+  }
 
-    .blob-container::before,
-    .blob-container::after {
-      content: "";
-      position: absolute;
-      width: 180%; /* Larger size */
-      height: 180%; /* Larger size */
-      filter: blur(120px); /* SIGNIFICANTLY Increased blur */
-      opacity: 0.7; /* Slightly reduced opacity for better blending */
-      animation-duration: 80s; /* Longer duration */
-      animation-timing-function: ease-in-out;
-      animation-iteration-count: infinite;
-    }
+  /* Navigation Bar - Updated Styles */
+  .navbar {
+    position: fixed; /* Changed from absolute to fixed */
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    padding: 20px 40px;
+    z-index: 1000;
+    background-color: #000000;
+    border-bottom: 1px solid #222;
+  }
 
-    .blob-container::before {
-      background: radial-gradient(
-        circle at 0% 100%,
-        rgba(220, 34, 34, 0.6),
-        rgba(52, 248, 124, 0.6) 20%, /* Adjusted stop */
-        transparent 75% /* Adjusted stop */
-      );
-      left: -40%; /* Adjusted position */
-      bottom: -40%; /* Adjusted position */
-      transform-origin: bottom left;
-      animation-name: bottomBlob;
-    }
+  .navbar .menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 8px;
+    margin-left: auto; /* Push button to the right */
+  }
 
-    .blob-container::after {
-      background: radial-gradient(
-        circle at 100% 0%,
-        rgba(0,191,255,0.6),
-        rgba(41, 12, 225, 0.4) 20%, /* Adjusted stop */
-        transparent 75% /* Adjusted stop */
-      );
-      right: -40%; /* Adjusted position */
-      top: -40%; /* Adjusted position */
-      transform-origin: top right;
-      animation-name: topBlob;
-    }
+  .navbar ul {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+  }
 
-    /* Adjusted Blob Keyframes for less movement */
-    @keyframes bottomBlob {
-      0% { transform: translate(0, 0) scale(0.9) rotate(0deg); border-radius: 40% 60% 60% 40% / 70% 50% 50% 30%; }
-      33% { transform: translate(-5%, 5%) scale(1) rotate(-30deg); border-radius: 70% 30% 50% 50% / 40% 60% 40% 60%; }
-      66% { transform: translate(5%, -3%) scale(0.95) rotate(-60deg); border-radius: 50% 50% 70% 30% / 60% 40% 60% 40%; }
-      100% { transform: translate(0, 0) scale(0.9) rotate(-90deg); border-radius: 40% 60% 60% 40% / 70% 50% 50% 30%; }
-    }
+  .navbar ul li a {
+    padding: 10px 15px;
+    border-radius: 6px;
+    transition: background 0.3s, color 0.3s;
+    font-weight: bold;
+    color: #e0e0e0;
+  }
 
-    @keyframes topBlob {
-      0% { transform: translate(0, 0) scale(0.9) rotate(0deg); border-radius: 60% 40% 30% 70% / 50% 70% 30% 50%; }
-      33% { transform: translate(5%, -5%) scale(1) rotate(30deg); border-radius: 30% 70% 45% 55% / 55% 45% 55% 45%; }
-      66% { transform: translate(-3%, 5%) scale(0.95) rotate(60deg); border-radius: 50% 50% 40% 60% / 60% 40% 60% 40%; }
-      100% { transform: translate(0, 0) scale(0.9) rotate(90deg); border-radius: 60% 40% 30% 70% / 50% 70% 30% 50%; }
-    }
+  .navbar ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+  }
 
-
-    .hero h1 {
-        font-size: 3.5rem;
-        margin-bottom: 0.5em;
-        position: relative;
-        z-index: 1;
-        text-shadow: 0px 3px 6px rgba(0,0,0,0.6);
-    }
-    .hero p {
-      font-size: 1.2rem;
-      position: relative;
-      z-index: 1;
-      text-shadow: 0px 2px 4px rgba(0,0,0,0.5);
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-      color: #ccc;
-    }
-
-    /* Navigation Bar - Glassy Effect */
+  /* Mobile Menu Styles */
+  @media (max-width: 768px) {
     .navbar {
+      padding: 15px 20px;
+      justify-content: flex-end; /* Keep everything aligned to the right */
+    }
+
+    .navbar .menu-btn {
+      display: block;
+    }
+
+    .navbar ul {
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      display: flex;
-      justify-content: flex-end;
-      padding: 20px 40px;
-      z-index: 10;
-      background-color: rgba(10, 10, 10, 0.5);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      top: calc(100% + 10px); /* Position below navbar with 10px gap */
+      right: 20px; /* Align with right margin */
+      width: calc(100% - 40px); /* Full width minus margins */
+      max-width: 300px;
+      background-color: #000000;
+      flex-direction: column;
+      padding: 15px 0;
+      border-radius: 12px; /* Rounded corners */
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-10px);
+      transition: all 0.3s ease;
+      border: 1px solid #222;
+    }
+
+    .navbar ul.active {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
     }
 
     .navbar ul li {
-      display: inline-block;
-      margin-left: 25px;
+      margin: 0;
+      width: 100%;
+      text-align: center;
     }
 
     .navbar ul li a {
-      padding: 10px 15px;
-      border-radius: 6px;
-      transition: background 0.3s, color 0.3s;
-      font-weight: bold;
-      color: #e0e0e0;
+      display: block;
+      padding: 12px 20px;
+      border-radius: 0;
     }
 
     .navbar ul li a:hover {
-      background-color: rgba(255, 255, 255, 0.15);
-      color: #fff;
+      background-color: rgba(255, 255, 255, 0.05);
     }
+  }
 
-    /* Section Layout */
-    section {
-      padding: 100px 30px;
-      max-width: 1200px;
-      margin: 0 auto;
-      position: relative;
-    }
-    /* Increased bottom padding specifically for about section */
-    section#about {
-        padding-bottom: 120px; /* More space below resume button */
-    }
+  /* Section Layout */
+  section {
+    padding: 100px 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+  }
 
-    section h2 {
-      font-size: 2.8rem;
-      margin-bottom: 1.5em;
-      text-align: center;
-      position: relative;
-      color: #fff;
-    }
+  section#about {
+    padding-bottom: 120px;
+  }
 
-    section h2::after {
-      content: "";
-      display: block;
-      height: 4px;
-      width: 70px;
-      background: linear-gradient(90deg, rgba(0,191,255,0.8), rgba(255,0,255,0.8));
-      margin: 15px auto 0;
-      border-radius: 2px;
-    }
+  section h2 {
+    font-size: 2.8rem;
+    margin-bottom: 1.5em;
+    text-align: center;
+    position: relative;
+    color: #fff;
+  }
 
-    /* ABOUT SECTION */
-    .about-container {
-      max-width: 800px;
-      margin: 0 auto;
-      text-align: center;
-    }
-    .about-container p {
-      font-size: 1.15rem;
-      line-height: 1.8;
-      color: #b0b0b0;
-      margin-bottom: 1.5em;
-    }
-    .about-container a { /* Style for inline links if any */
-      color: #61dafb;
-      text-decoration: none;
-      font-weight: bold;
-      border-bottom: 1px solid transparent;
-      transition: color 0.3s, border-color 0.3s;
-    }
-    .about-container a:hover { /* Now applies to all links including resume */
-      color: #fff;
-      border-bottom-color: #fff;
-    }
-    
-    /* Remove the resume-link button styles and replace with simpler link */
-    .resume-link {
-      display: inline-block;
-      color: #61dafb;
-      font-size: 1.05rem;
-      margin-top: 0.5em;
-      position: relative;
-      transition: color 0.3s;
-    }
-    
-    .resume-link:hover {
-      color: #ffffff;
-    }
-    
-    .resume-link::after {
-      content: "→";
-      margin-left: 5px;
-      transition: transform 0.3s;
-      display: inline-block;
-    }
-    
-    .resume-link:hover::after {
-      transform: translateX(3px);
-    }
+  section h2::after {
+    content: "";
+    display: block;
+    height: 4px;
+    width: 70px;
+    background: linear-gradient(90deg, rgba(0,191,255,0.8), rgba(255,0,255,0.8));
+    margin: 15px auto 0;
+    border-radius: 2px;
+  }
 
-    /* CARDS BASE STYLES (Skills & Projects) */
-    .skill-card, .project-card {
-      background-color: #111;
-      border: 1px solid #222;
-      border-radius: 12px;
-      padding: 25px;
-      /* Add specific transition for box-shadow with longer duration */
-      transition: transform 0.3s ease, box-shadow 0.8s cubic-bezier(0.19, 1, 0.22, 1);
-      position: relative;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-      overflow: hidden; /* Add this to contain the image */
-    }
+  /* ABOUT SECTION */
+  .about-container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .about-container p {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: #b0b0b0;
+    margin-bottom: 1.5em;
+  }
+  .about-container a {
+    color: #61dafb;
+    text-decoration: none;
+    font-weight: bold;
+    border-bottom: 1px solid transparent;
+    transition: color 0.3s, border-color 0.3s;
+  }
+  .about-container a:hover {
+    color: #fff;
+    border-bottom-color: #fff;
+  }
 
-    /* NEW: Card Hover Glow using Box Shadow */
-    .skill-card:hover, .project-card:hover {
-      transform: translateY(-5px); /* Subtle lift on hover */
-      /* Multi-layer box-shadow with more blur and colors for the outside glow */
-      box-shadow:
-        0 0 20px 2px rgba(0, 255, 255, 0.3),  /* Inner cyan */
-        0 0 35px 10px rgba(255, 0, 255, 0.2), /* Middle magenta */
-        0 0 50px 20px rgba(255, 255, 0, 0.1), /* Yellow */
-        0 0 65px 25px rgba(255, 100, 100, 0.1); /* Light red, outer glow */
-    }
+  .resume-link {
+    display: inline-block;
+    color: #61dafb;
+    font-size: 1.05rem;
+    margin-top: 0.5em;
+    position: relative;
+    transition: color 0.3s;
+  }
+  .resume-link:hover {
+    color: #ffffff;
+  }
+  .resume-link::after {
+    content: "→";
+    margin-left: 5px;
+    transition: transform 0.3s;
+    display: inline-block;
+  }
+  .resume-link:hover::after {
+    transform: translateX(3px);
+  }
 
-    /* SKILLS SECTION */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
-      margin-top: 50px;
-    }
+  /* CARDS BASE STYLES (Skills & Projects) */
+  .skill-card, .project-card {
+    background-color: #111;   /* Keep the card itself dark */
+    border: 1px solid #222;
+    border-radius: 12px;
+    padding: 25px;
+    transition: transform 0.3s ease, box-shadow 0.5s ease;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    z-index: 1;
+  }
 
-    .skill-card h3 {
-      margin-bottom: 1em;
-      font-size: 1.6rem;
-      color: #fff;
-    }
+  /* Slight lift on hover (no internal glow) */
+  .skill-card:hover, .project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3),
+                0 0 40px rgba(243, 0, 255, 0.2),
+                0 0 80px rgba(0, 80, 255, 0.1);
+  }
 
-    .skill-card ul {
-      list-style: none;
-      padding-left: 0;
-    }
+  /* Remove the old glow pseudo-element */
+  .skill-card::after, .project-card::after {
+    display: none;
+  }
 
-    .skill-card li {
+  /* Add new animated shadow class */
+  @keyframes shadowShift {
+    0% {
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3),
+                  0 0 40px rgba(243, 0, 255, 0.2),
+                  0 0 80px rgba(0, 80, 255, 0.1);
+    }
+    33% {
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3),
+                  0 0 40px rgba(0, 255, 208, 0.2),
+                  0 0 80px rgba(0, 191, 255, 0.1);
+    }
+    66% {
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3),
+                  0 0 40px rgba(245, 245, 0, 0.2),
+                  0 0 80px rgba(255, 0, 0, 0.1);
+    }
+    100% {
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3),
+                  0 0 40px rgba(243, 0, 255, 0.2),
+                  0 0 80px rgba(0, 80, 255, 0.1);
+    }
+  }
+
+  .skill-card:hover, .project-card:hover {
+    animation: shadowShift 6s ease-in-out infinite;
+  }
+
+  /* SKILLS SECTION */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+  }
+
+  .skill-card h3 {
+    margin-bottom: 1em;
+    font-size: 1.6rem;
+    color: #fff;
+  }
+
+  .skill-card ul {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  .skill-card li {
+    margin-bottom: 0.7em;
+    color: #b0b0b0;
+    position: relative;
+    padding-left: 20px;
+  }
+
+  .skill-card li::before {
+    content: '▹';
+    position: absolute;
+    left: 0;
+    color: #61dafb;
+    font-weight: bold;
+  }
+
+  /* PROJECTS SECTION */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+  }
+
+  .project-card {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+  }
+
+  .project-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 12px 12px 0 0;
+    margin-bottom: 0;
+  }
+
+  .project-content {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  .project-content h3 {
+    margin-top: 0;
+    margin-bottom: 0.7em;
+    font-size: 1.6rem;
+    color: #fff;
+  }
+
+  .project-content p {
+    font-size: 1rem;
+    color: #b0b0b0;
+    margin-bottom: 1.5em;
+    flex-grow: 1;
+  }
+
+  .project-buttons {
+    display: flex;
+    gap: 12px;
+    margin-top: auto;
+  }
+
+  .project-link {
+    flex: 1;
+    text-align: center;
+    min-width: 100px;
+  }
+
+  .project-link {
+    display: inline-block;
+    padding: 12px 25px;
+    margin-top: auto;
+    border: none;
+    border-radius: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    font-weight: bold;
+    color: #080808;
+    background-color: #e0e0e0;
+    text-align: center;
+    align-self: flex-start;
+  }
+
+  .project-link:hover {
+    background-color: #fff;
+    color: #000;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
+  }
+
+  /* CONTACT SECTION */
+  .contact-section {
+    background-color: #0a0a0a;
+    padding: 120px 20px;
+  }
+
+  .contact-container {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 40px;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    text-align: left;
+  }
+
+  .form-group label {
+    color: #fff;
+    font-size: 0.9rem;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    padding: 12px;
+    border-radius: 8px;
+    background-color: #111;
+    border: 1px solid #333;
+    color: #fff;
+    font-family: inherit;
+    transition: border-color 0.3s ease;
+  }
+
+  .form-group input:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: #61dafb;
+  }
+
+  .form-group textarea {
+    min-height: 150px;
+    resize: vertical;
+  }
+
+  .submit-btn {
+    background-color: #61dafb;
+    color: #000;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.3s ease;
+    margin-top: 20px;
+  }
+
+  .submit-btn:hover {
+    background-color: #fff;
+    transform: translateY(-2px);
+  }
+
+  .contact-socials {
+    margin-top: 40px;
+    padding-top: 40px;
+    border-top: 1px solid #222;
+  }
+
+  .contact-socials a {
+    margin: 0 15px;
+    color: #a0a0a0;
+    font-weight: bold;
+    transition: color 0.3s;
+  }
+
+  .contact-socials a:hover {
+    color: #61dafb;
+  }
+
+  /* FOOTER */
+  footer {
+    background-color: #000;
+    padding: 40px 20px;
+    text-align: center;
+    border-top: 1px solid #222;
+  }
+
+  footer p {
+    color: #777;
+    font-size: 0.9rem;
+  }
+
+  /* SCROLL REVEAL ANIMATION */
+  .reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+                transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Media Queries */
+  @media (max-width: 768px) {
+    .hero h1 { 
+      font-size: 2.5rem;
       margin-bottom: 0.7em;
-      color: #b0b0b0;
-      position: relative;
-      padding-left: 20px;
     }
-    .skill-card li::before {
-        content: '▹';
-        position: absolute;
-        left: 0;
-        color: #61dafb;
-        font-weight: bold;
-    }
-
-
-    /* PROJECTS SECTION */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 30px;
-      margin-top: 50px;
-    }
-
-    .project-card {
-      display: flex;
-      flex-direction: column;
-      padding: 0; /* Move padding to content area */
-    }
-
-    /* Project card image styling - EDGE TO EDGE */
-    .project-card img {
-        width: 100%; /* Fill container width */
-        height: 220px; /* Slightly taller */
-        object-fit: cover; /* Cover the area, crop if needed */
-        border-radius: 12px 12px 0 0; /* Match card top radius */
-        margin-bottom: 0; /* Remove bottom margin */
-    }
-
-    .project-content {
-      padding: 25px; /* Move padding from card to content */
-      display: flex;
-      flex-direction: column;
-      flex-grow: 1;
-    }
-
-    .project-content h3 {
-      margin-top: 0;
-      margin-bottom: 0.7em;
-      font-size: 1.6rem;
-      color: #fff;
-    }
-
-    .project-content p {
+    .hero p { 
       font-size: 1rem;
-      color: #b0b0b0;
-      margin-bottom: 1.5em;
-      flex-grow: 1;
+      padding: 0 15px;
+      br { display: none; } /* Remove line break on mobile */
     }
+    .navbar { padding: 15px 20px; justify-content: center; }
+    .navbar ul li { margin-left: 15px; }
+    section { padding: 80px 20px; }
+    section#about { padding-bottom: 100px; }
+    section h2 { font-size: 2.2rem; }
+    .skills-grid, .projects-grid { grid-template-columns: 1fr; gap: 25px; }
+  }
 
-    /* Modernized Buttons */
-    .project-link {
-      display: inline-block;
-      padding: 12px 25px;
-      margin-top: auto;
-      border: none;
-      border-radius: 8px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-      font-weight: bold;
-      color: #080808;
-      background-color: #e0e0e0;
-      text-align: center;
-      align-self: flex-start;
+  @media (max-width: 480px) {
+    .hero h1 { 
+      font-size: 2rem;
     }
+  }
+</style>
 
-    .project-link:hover {
-      background-color: #fff;
-      color: #000;
-      transform: translateY(-3px);
-      box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
-    }
-
-
-    /* FOOTER */
-    footer {
-      background-color: #000;
-      padding: 40px 20px;
-      text-align: center;
-      border-top: 1px solid #222;
-    }
-
-    footer .social-links {
-      margin-bottom: 20px;
-    }
-
-    footer .social-links a {
-      margin: 0 15px;
-      transition: color 0.3s;
-      font-weight: bold;
-      color: #a0a0a0;
-      font-size: 0.9rem;
-    }
-
-    footer .social-links a:hover {
-      color: #61dafb;
-    }
-
-    footer p {
-        color: #777;
-        font-size: 0.9rem;
-    }
-
-    /* SCROLL REVEAL ANIMATION */
-    .reveal {
-        opacity: 0;
-        transform: translateY(40px);
-        transition: opacity 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275),
-                    transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    }
-
-    .reveal.visible {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
-    /* Media Queries */
-     @media (max-width: 768px) {
-        .hero h1 { font-size: 2.8rem; }
-        .hero p { font-size: 1rem; }
-        .navbar { padding: 15px 20px; justify-content: center; }
-        .navbar ul li { margin-left: 15px; }
-        section { padding: 80px 20px; }
-        section#about { padding-bottom: 100px; } /* Adjust for smaller screens */
-        section h2 { font-size: 2.2rem; }
-        .skills-grid, .projects-grid { grid-template-columns: 1fr; gap: 25px; }
-     }
-
-  </style>
 </head>
 
 <body>
   <!-- Navigation -->
   <nav class="navbar">
+    <button class="menu-btn" aria-label="Toggle menu">☰</button>
     <ul>
       <li><a href="#about">About</a></li>
       <li><a href="#skills">Skills</a></li>
@@ -496,6 +677,7 @@
     </div>
   </section>
 
+
   <!-- SKILLS SECTION -->
   <section id="skills">
     <h2 class="reveal">My Skills</h2>
@@ -514,7 +696,7 @@
       <div class="skill-card reveal">
         <h3>Programming</h3>
         <ul>
-          <li>Flutter</li>
+          <li>Flutter & Dart</li>
           <li>C/C++ (ESP32, Arduino)</li>
           <li>JavaScript</li>
           <li>Nuxt.js & Vue.js</li>
@@ -529,17 +711,15 @@
           <li>Appwrite</li>
           <li>REST APIs</li>
           <li>Express.js</li>
-          <li>MongoDB</li>
         </ul>
       </div>
       <div class="skill-card reveal">
         <h3>Other Tools</h3>
         <ul>
           <li>Git & GitHub</li>
-          <li>Figma</li>
-          <li>Linux & Bash</li>
           <li>Continuous Integration</li>
           <li>Electronics Testing Equipment</li>
+          <li>Artificial Inteligence</li>
         </ul>
       </div>
     </div>
@@ -559,7 +739,10 @@
             and ESP32 for modular IoT devices. PCB design, circuit development, and cross-platform app
             programming all in one package.
           </p>
-          <a class="project-link" href="https://wawehome.com/" target="_blank">Project Website</a>
+          <div class="project-buttons">
+            <a class="project-link" href="https://wawehome.com/" target="_blank">Website</a>
+            <a class="project-link" href="/projects/wawe-home.html" target="_blank">Info</a>
+          </div>
         </div>
       </div>
       <div class="project-card reveal">
@@ -572,6 +755,9 @@
             and social media. Built with Vue, Nuxt.js, Flutter, and Node.js, providing a comprehensive
             platform for space enthusiasts.
           </p>
+          <div class="project-buttons">
+            <a class="project-link" href="/projects/beyond-space-news.html" target="_blank">Info</a>
+          </div>
         </div>
       </div>
       <div class="project-card reveal">
@@ -582,8 +768,26 @@
           <p>
             Ssteh was an educational resource-sharing platform for high school students. It provided
             curated materials and fostered collaborative learning using modern web/app technologies.
+            Previously on ssteh.com.
           </p>
-          <a class="project-link" href="https://ssteh.com/" target="_blank">Project Website</a>
+          <div class="project-buttons">
+            <a class="project-link" href="https://ssteh-home.netlify.app/" target="_blank">Archive</a>
+            <a class="project-link" href="/projects/ssteh.html" target="_blank">Info</a>
+          </div>
+        </div>
+      </div>
+      <div class="project-card reveal">
+         <!-- Ensure image paths are correct -->
+        <img src="/luggie.png" alt="Ai Werable"/>
+        <div class="project-content">
+          <h3>Luggie</h3>
+          <p>
+            Luggie is the essential app for tourist resorts, simplifying luggage and transport services. Keep staff organized and give management a clear operational overview.
+          </p>
+          <div class="project-buttons">
+            <a class="project-link" href="https://luggie.ivanb.eu/" target="_blank">Website</a>
+            <a class="project-link" href="/projects/luggie.html" target="_blank">Info</a>
+          </div>
         </div>
       </div>
       <div class="project-card reveal">
@@ -595,24 +799,75 @@
             Ai Werable is a project that combines AI and wearable technology to create a truly personal
             and useful AI assistant. Project is currently in development.
           </p>
-          <a class="project-link" href="https://waweai.com/" target="">Project Website</a>
+          <div class="project-buttons">
+            <a class="project-link" href="https://waweai.com/" target="_blank">Website</a>
+            <a class="project-link" href="/projects/ai-werable.html" target="_blank">Info</a>
+          </div>
         </div>
+      </div>
+      
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section id="contact" class="contact-section">
+    <h2 class="reveal">Contact Me</h2>
+    <div class="contact-container">
+      <p class="reveal">Have a question or want to work together? Feel free to reach out!</p>
+      
+      <form class="contact-form reveal" action="https://formspree.io/f/mvodovea" method="POST">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" required></textarea>
+        </div>
+        
+        <button type="submit" class="submit-btn">Send Message</button>
+      </form>
+
+      <div class="contact-socials reveal">
+        <a href="mailto:ivan@wawehome.com">Email</a> |
+        <a href="https://www.linkedin.com/in/ivan-begonja-b820091aa" target="_blank" rel="noopener noreferrer">LinkedIn</a> |
+        <a href="https://github.com/Sirius3615" target="_blank" rel="noopener noreferrer">GitHub</a> |
+        <a href="https://x.com/the_ivan0" target="_blank" rel="noopener noreferrer">Twitter</a>
       </div>
     </div>
   </section>
 
   <!-- CONTACT / FOOTER SECTION -->
-  <footer id="contact">
-    <div class="social-links reveal">
-      <a href="mailto:ivan@wawehome.com">Email</a> |
-      <a href="https://www.linkedin.com/in/ivan-begonja-b820091aa" target="_blank" rel="noopener noreferrer">LinkedIn</a> |
-      <a href="https://github.com/Sirius3615" target="_blank" rel="noopener noreferrer">GitHub</a> |
-      <a href="https://x.com/the_ivan0" target="_blank" rel="noopener noreferrer">Twitter</a>
-    </div>
+  <footer>
     <p class="reveal">© <span id="year"></span> Ivan Begonja. All rights reserved.</p>
   </footer>
 
   <script>
+    // Add this at the beginning of your script section
+    document.querySelector('.menu-btn').addEventListener('click', () => {
+      document.querySelector('.navbar ul').classList.toggle('active');
+    });
+
+    // Close menu when clicking a link (mobile)
+    document.querySelectorAll('.navbar a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.querySelector('.navbar ul').classList.remove('active');
+      });
+    });
+
+    // Close menu when clicking outside (mobile)
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.navbar')) {
+        document.querySelector('.navbar ul').classList.remove('active');
+      }
+    });
+
     // Dynamic year in footer
     document.getElementById('year').textContent = new Date().getFullYear();
 
