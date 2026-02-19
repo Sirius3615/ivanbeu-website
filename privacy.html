@@ -4,84 +4,112 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Privacy Policy - CLS</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: "Inter", sans-serif; background: #ffffff; color: #1a1a2e; line-height: 1.7; }
+    a { text-decoration: none; color: inherit; transition: color 0.3s; }
+
+    nav {
+      position: fixed; top: 0; left: 0; width: 100%;
+      background: rgba(255,255,255,0.92); backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid #e5e7eb; z-index: 1000; padding: 16px 40px;
+    }
+    nav .inner { max-width: 1000px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+    nav a.brand { font-weight: 700; font-size: 1.1rem; color: #1a1a2e; }
+    nav a.back { color: #2563eb; font-weight: 600; font-size: 0.9rem; }
+    nav a.back:hover { color: #1d4ed8; }
+
+    main { max-width: 800px; margin: 0 auto; padding: 120px 24px 60px; }
+    main h1 { font-size: 2.4rem; font-weight: 700; margin-bottom: 2rem; letter-spacing: -0.02em; }
+
+    .content-section { margin-bottom: 2.5rem; }
+    .content-section h2 { font-size: 1.3rem; font-weight: 600; color: #1a1a2e; margin-bottom: 0.75rem; }
+    .content-section p, .content-section li { color: #4b5563; font-size: 1rem; line-height: 1.8; }
+    .content-section ul { list-style: none; padding: 0; }
+    .content-section li { padding-left: 20px; position: relative; margin-bottom: 0.4em; }
+    .content-section li::before { content: ''; position: absolute; left: 0; top: 10px; width: 6px; height: 6px; background: #2563eb; border-radius: 50%; }
+
+    footer {
+      background: #0f172a; padding: 40px 20px; text-align: center; border-top: 1px solid #1e293b;
+    }
+    footer p { color: #64748b; font-size: 0.85rem; }
+
+    @media (max-width: 768px) {
+      nav { padding: 14px 20px; }
+      main { padding: 100px 20px 40px; }
+      main h1 { font-size: 1.8rem; }
+    }
+  </style>
 </head>
-<body class="bg-gray-100 text-gray-800">
-  <!-- Navigation -->
-  <nav class="bg-white shadow-md">
-    <div class="container mx-auto px-6 py-3">
-      <div class="flex justify-between items-center">
-        <a href="cls.html" class="text-xl font-bold">CLS</a>
-        <a href="cls.html" class="text-gray-600 hover:text-gray-900">Back to Home</a>
-      </div>
+<body>
+  <nav>
+    <div class="inner">
+      <a href="cls.html" class="brand">CLS</a>
+      <a href="cls.html" class="back">← Back to Home</a>
     </div>
   </nav>
 
-  <!-- Main Content -->
-  <main class="container mx-auto px-4 py-12 max-w-4xl">
-    <h1 class="text-4xl font-bold mb-8">Privacy Policy</h1>
-    
-    <div class="space-y-8">
-      <section>
-        <h2 class="text-2xl font-semibold mb-4">1. Introduction</h2>
-        <p class="text-gray-600">This Privacy Policy explains how College Learning System (CLS) collects, uses, and protects your personal information when you use our mobile application and services.</p>
-      </section>
+  <main>
+    <h1>Privacy Policy</h1>
 
-      <section>
-        <h2 class="text-2xl font-semibold mb-4">2. Information We Collect</h2>
-        <ul class="list-disc pl-6 text-gray-600 space-y-2">
-          <li>Account information (name, email)</li>
-          <li>Learning progress and performance data</li>
-          <li>Device information and usage statistics</li>
-          <li>Communications with our support team</li>
-        </ul>
-      </section>
+    <div class="content-section">
+      <h2>1. Introduction</h2>
+      <p>This Privacy Policy explains how College Learning System (CLS) collects, uses, and protects your personal information when you use our mobile application and services.</p>
+    </div>
 
-      <section>
-        <h2 class="text-2xl font-semibold mb-4">3. How We Use Your Information</h2>
-        <ul class="list-disc pl-6 text-gray-600 space-y-2">
-          <li>Provide and improve educational services</li>
-          <li>Track learning progress and achievements</li>
-          <li>Personalize learning experience</li>
-          <li>Communicate updates and support</li>
-        </ul>
-      </section>
+    <div class="content-section">
+      <h2>2. Information We Collect</h2>
+      <ul>
+        <li>Account information (name, email)</li>
+        <li>Learning progress and performance data</li>
+        <li>Device information and usage statistics</li>
+        <li>Communications with our support team</li>
+      </ul>
+    </div>
 
-      <section>
-        <h2 class="text-2xl font-semibold mb-4">4. Data Protection</h2>
-        <p class="text-gray-600">We implement appropriate security measures to protect your personal information from unauthorized access, alteration, or disclosure.</p>
-      </section>
+    <div class="content-section">
+      <h2>3. How We Use Your Information</h2>
+      <ul>
+        <li>Provide and improve educational services</li>
+        <li>Track learning progress and achievements</li>
+        <li>Personalize learning experience</li>
+        <li>Communicate updates and support</li>
+      </ul>
+    </div>
 
-      <section>
-        <h2 class="text-2xl font-semibold mb-4">5. Your Rights</h2>
-        <ul class="list-disc pl-6 text-gray-600 space-y-2">
-          <li>Access your personal data</li>
-          <li>Request data correction or deletion</li>
-          <li>Opt-out of marketing communications</li>
-          <li>Data portability</li>
-        </ul>
-      </section>
+    <div class="content-section">
+      <h2>4. Data Protection</h2>
+      <p>We implement appropriate security measures to protect your personal information from unauthorized access, alteration, or disclosure.</p>
+    </div>
 
-      <section>
-        <h2 class="text-2xl font-semibold mb-4">6. Contact Us</h2>
-        <p class="text-gray-600">For any privacy-related questions or concerns, please contact us at:</p>
-        <p class="text-gray-600 mt-2">Email: privacy@ivanb.eu</p>
-      </section>
+    <div class="content-section">
+      <h2>5. Your Rights</h2>
+      <ul>
+        <li>Access your personal data</li>
+        <li>Request data correction or deletion</li>
+        <li>Opt-out of marketing communications</li>
+        <li>Data portability</li>
+      </ul>
+    </div>
 
-      <section>
-        <h2 class="text-2xl font-semibold mb-4">7. Updates to Privacy Policy</h2>
-        <p class="text-gray-600">We may update this privacy policy periodically. Last updated: December 2024</p>
-      </section>
+    <div class="content-section">
+      <h2>6. Contact Us</h2>
+      <p>For any privacy-related questions or concerns, please contact us at:</p>
+      <p>Email: <a href="mailto:privacy@ivanb.eu" style="color:#2563eb;font-weight:600;">privacy@ivanb.eu</a></p>
+    </div>
+
+    <div class="content-section">
+      <h2>7. Updates to Privacy Policy</h2>
+      <p>We may update this privacy policy periodically. Last updated: December 2024</p>
     </div>
   </main>
 
-  <!-- Footer -->
-  <footer class="bg-gray-900 text-white py-8 px-4 md:px-8 mt-12">
-    <div class="container mx-auto">
-      <div class="text-center text-gray-400">
-        <p>cls@ivanb.eu - &copy; 2024 CLS. All rights reserved.</p>
-      </div>
-    </div>
+  <footer>
+    <p>cls@ivanb.eu &mdash; &copy; 2024 CLS. All rights reserved.</p>
   </footer>
 </body>
 </html>
