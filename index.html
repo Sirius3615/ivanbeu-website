@@ -922,7 +922,9 @@
       svg.setAttribute('viewBox', `0 0 ${width} ${height}`);
       svg.setAttribute('preserveAspectRatio', 'xMidYMid slice');
 
-      const POINT_COUNT = Math.min(Math.floor((width * height) / 18000), 80);
+      const DENSITY_FACTOR = 18000; // lower = more particles per area
+      const MAX_PARTICLES = 80;
+      const POINT_COUNT = Math.min(Math.floor((width * height) / DENSITY_FACTOR), MAX_PARTICLES);
       const CONNECTION_DIST = 180;
       const MOUSE_RADIUS = 200;
 
