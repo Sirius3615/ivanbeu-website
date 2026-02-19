@@ -3,324 +3,101 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Ivan Begonja - Portfolio (Glassy Redesign)</title>
-
-  <!-- Fonts -->
+  <title>Ivan Begonja - Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    /* Reset & Base */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    html {
-      scroll-behavior: smooth;
-      font-family: "Inter", sans-serif;
-    }
-    body {
-      background: radial-gradient(circle at top, #222 0%, #000 100%);
-      color: #fff;
-      line-height: 1.7;
-      overflow-x: hidden;
-    }
-    a {
-      color: inherit;
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-    img {
-      max-width: 100%;
-      display: block;
-      height: auto;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: "Inter", sans-serif; background: #ffffff; color: #1a1a2e; line-height: 1.7; overflow-x: hidden; }
+    a { color: inherit; text-decoration: none; transition: color 0.3s; }
+    img { max-width: 100%; display: block; height: auto; }
 
-    /* Glass Utility Class */
-    .glass {
-      background: rgba(255, 255, 255, 0.07);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border-radius: 12px;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-    }
-
-    /* Navigation */
     .navbar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 999;
-      padding: 15px 40px;
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-      background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(15px);
-      -webkit-backdrop-filter: blur(15px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      position: fixed; top: 0; left: 0; width: 100%; z-index: 999;
+      padding: 16px 40px; display: flex; justify-content: flex-end; align-items: center;
+      background: rgba(255,255,255,0.92); backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid #e5e7eb;
     }
-    .navbar ul {
-      list-style: none;
-      display: flex;
-      gap: 25px;
-    }
-    .navbar li a {
-      font-weight: 500;
-      padding: 8px 12px;
-      border-radius: 8px;
-      color: #fff;
-    }
-    .navbar li a:hover {
-      background: rgba(255, 255, 255, 0.15);
-    }
+    .navbar ul { list-style: none; display: flex; gap: 8px; }
+    .navbar li a { font-weight: 500; padding: 8px 16px; border-radius: 8px; color: #4b5563; font-size: 0.9rem; }
+    .navbar li a:hover { background: #f3f4f6; color: #1a1a2e; }
 
-    /* Hero */
     .hero {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 0 20px;
-      text-align: center;
-      position: relative;
+      min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center;
+      padding: 0 20px; text-align: center; position: relative;
+      background: linear-gradient(135deg, #0f172a, #1e293b);
     }
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 40px;
-    }
-    .hero .hero-content h1 {
-      font-size: 3.5rem;
-      margin-bottom: 1rem;
-      line-height: 1.2;
-    }
-    .hero .hero-content p {
-      font-size: 1.2rem;
-      color: #ccc;
-      margin-bottom: 0.5rem;
-    }
+    .hero-content { position: relative; z-index: 2; max-width: 700px; margin: 0 auto; padding: 40px; }
+    .hero h1 { font-size: 3.5rem; font-weight: 700; margin-bottom: 1rem; line-height: 1.15; color: #fff; letter-spacing: -0.03em; }
+    .hero h1 .accent { color: #60a5fa; }
+    .hero p { font-size: 1.15rem; color: #94a3b8; margin-bottom: 0.5rem; }
 
-    /* Subtle floating glass shape behind hero text */
-    .hero-glass-bg {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 1000px;
-      height: 1000px;
-      transform: translate(-50%, -50%);
-      background: radial-gradient(circle, rgba(255,255,255,0.09), transparent 60%);
-      filter: blur(80px);
-      z-index: 1;
-      pointer-events: none;
-    }
+    section { padding: 100px 20px; max-width: 1200px; margin: 0 auto; position: relative; }
+    section h2 { font-size: 2.2rem; margin-bottom: 0.5rem; text-align: center; font-weight: 700; letter-spacing: -0.02em; }
+    .section-subtitle { text-align: center; color: #6b7280; font-size: 1.05rem; max-width: 550px; margin: 0 auto 3rem; }
 
-    /* Section Base */
-    section {
-      padding: 100px 20px 80px;
-      max-width: 1200px;
-      margin: 0 auto;
-      position: relative;
-    }
-    section h2 {
-      font-size: 2.4rem;
-      margin-bottom: 1rem;
-      text-align: center;
-      color: #fff;
-      position: relative;
-    }
-    section h2::after {
-      content: "";
-      display: block;
-      width: 70px;
-      height: 3px;
-      background: linear-gradient(90deg, rgba(0,191,255,0.8), rgba(255,0,255,0.8));
-      margin: 10px auto 0;
-      border-radius: 2px;
-    }
+    #about { background: #f8fafc; max-width: 100%; }
+    #about .about-container { max-width: 750px; margin: 0 auto; text-align: center; }
+    #about .about-container p { margin-bottom: 1.5rem; font-size: 1.1rem; color: #4b5563; }
+    .resume-link { color: #2563eb; font-weight: 600; transition: all 0.3s; }
+    .resume-link:hover { color: #1d4ed8; }
+    .resume-link::after { content: " →"; display: inline-block; margin-left: 5px; transition: transform 0.3s; }
+    .resume-link:hover::after { transform: translateX(3px); }
 
-    /* About */
-    #about .about-container {
-      max-width: 800px;
-      margin: 0 auto;
-      text-align: center;
-    }
-    #about .about-container p {
-      margin-bottom: 1.5rem;
-      font-size: 1.1rem;
-      color: #bbb;
-    }
-    .resume-link {
-      color: #87cefa;
-      font-weight: 600;
-      transition: all 0.3s ease;
-      border-bottom: 1px solid transparent;
-    }
-    .resume-link:hover {
-      color: #fff;
-      border-bottom-color: #fff;
-    }
-    .resume-link::after {
-      content: " →";
-      transition: transform 0.3s;
-      display: inline-block;
-      margin-left: 5px;
-    }
-    .resume-link:hover::after {
-      transform: translateX(3px);
-    }
-
-    /* Skills */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
-      margin-top: 50px;
-    }
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; }
     .skill-card {
-      padding: 30px;
-      position: relative;
-      overflow: hidden;
+      background: #fff; border: 1px solid #e5e7eb; border-radius: 16px; padding: 32px;
+      transition: transform 0.3s, box-shadow 0.3s; position: relative; overflow: hidden;
     }
-    .skill-card h3 {
-      margin-bottom: 1rem;
-      font-size: 1.6rem;
-    }
-    .skill-card ul {
-      list-style: none;
-    }
-    .skill-card li {
-      position: relative;
-      color: #ccc;
-      margin-bottom: 0.7rem;
-      padding-left: 20px;
-    }
-    .skill-card li::before {
-      content: '▹';
-      position: absolute;
-      left: 0;
-      color: #87cefa;
-    }
+    .skill-card::before { content:''; position: absolute; top:0; left:0; right:0; height:3px; background: linear-gradient(90deg,#2563eb,#60a5fa); opacity:0; transition: opacity 0.3s; }
+    .skill-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.06); }
+    .skill-card:hover::before { opacity:1; }
+    .skill-card h3 { margin-bottom: 1rem; font-size: 1.2rem; font-weight: 600; }
+    .skill-card ul { list-style: none; }
+    .skill-card li { color: #6b7280; margin-bottom: 0.6rem; padding-left: 20px; position: relative; font-size: 0.95rem; }
+    .skill-card li::before { content:''; position:absolute; left:0; top:10px; width:6px; height:6px; background:#2563eb; border-radius:50%; }
 
-    /* Projects */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 30px;
-      margin-top: 50px;
-    }
+    #projects { background: #f8fafc; max-width: 100%; }
+    .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 28px; }
     .project-card {
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      border-radius: 12px;
+      overflow: hidden; display: flex; flex-direction: column; border-radius: 16px;
+      background: #fff; border: 1px solid #e5e7eb; transition: transform 0.3s, box-shadow 0.3s;
     }
-    .project-card img {
-      width: 100%;
-      height: 220px;
-      object-fit: cover;
-      border-radius: 12px 12px 0 0;
-    }
-    .project-content {
-      padding: 25px;
-      display: flex;
-      flex-direction: column;
-      flex-grow: 1;
-    }
-    .project-content h3 {
-      font-size: 1.6rem;
-      margin-bottom: 0.7rem;
-    }
-    .project-content p {
-      color: #ccc;
-      flex-grow: 1;
-      margin-bottom: 1rem;
-    }
+    .project-card:hover { transform: translateY(-6px); box-shadow: 0 16px 48px rgba(0,0,0,0.08); }
+    .project-card img { width: 100%; height: 220px; object-fit: cover; transition: transform 0.5s; }
+    .project-card:hover img { transform: scale(1.05); }
+    .project-content { padding: 28px; display: flex; flex-direction: column; flex-grow: 1; }
+    .project-content h3 { font-size: 1.35rem; margin-bottom: 0.5rem; font-weight: 600; }
+    .project-content p { color: #6b7280; flex-grow: 1; margin-bottom: 1rem; font-size: 0.95rem; }
     .project-link {
-      display: inline-block;
-      padding: 12px 25px;
-      border-radius: 8px;
-      font-weight: bold;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      background-color: #fff;
-      color: #000;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      align-self: flex-start;
-      text-align: center;
+      display: inline-block; padding: 10px 20px; border-radius: 8px; font-weight: 500; font-size: 0.85rem;
+      background: #2563eb; color: #fff; transition: all 0.3s; align-self: flex-start; text-align: center;
     }
-    .project-link:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 5px 15px rgba(255, 255, 255, 0.15);
-    }
+    .project-link:hover { background: #1d4ed8; transform: translateY(-2px); color: #fff; }
 
-    /* Footer */
     footer {
-      padding: 50px 20px;
-      text-align: center;
-      background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      margin-top: 80px;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 40px 20px; text-align: center; background: #0f172a; border-top: 1px solid #1e293b;
     }
-    footer .social-links {
-      margin-bottom: 15px;
-    }
-    footer .social-links a {
-      margin: 0 15px;
-      color: #a0a0a0;
-      font-weight: 600;
-      font-size: 0.9rem;
-      transition: color 0.3s;
-    }
-    footer .social-links a:hover {
-      color: #fff;
-    }
-    footer p {
-      color: #777;
-      font-size: 0.9rem;
-    }
+    footer .social-links { margin-bottom: 15px; }
+    footer .social-links a { margin: 0 15px; color: #64748b; font-weight: 500; font-size: 0.9rem; }
+    footer .social-links a:hover { color: #60a5fa; }
+    footer p { color: #64748b; font-size: 0.85rem; }
 
-    /* Reveal Animation */
-    .reveal {
-      opacity: 0;
-      transform: translateY(40px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
-    }
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
 
-    /* Responsive */
     @media (max-width: 768px) {
-      .hero .hero-content h1 {
-        font-size: 2.4rem;
-      }
-      .hero .hero-content p {
-        font-size: 1rem;
-      }
-      .navbar {
-        padding: 15px 20px;
-        justify-content: center;
-      }
-      .skills-grid,
-      .projects-grid {
-        grid-template-columns: 1fr;
-      }
+      .hero h1 { font-size: 2.4rem; }
+      .hero p { font-size: 1rem; }
+      .navbar { padding: 14px 20px; justify-content: center; }
+      .skills-grid, .projects-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 
 <body>
-  <!-- NAVBAR -->
   <nav class="navbar">
     <ul>
       <li><a href="#about">About</a></li>
@@ -330,22 +107,17 @@
     </ul>
   </nav>
 
-  <!-- HERO -->
   <header class="hero">
-    <!-- Large frosted glow behind the hero text -->
-    <div class="hero-glass-bg"></div>
-
-    <!-- Glass overlay for hero text -->
-    <div class="hero-content glass">
-      <h1>Ivan Begonja</h1>
-      <p>Electronics Student & Developer.<br/>Innovating in hardware & software, one project at a time.</p>
+    <div class="hero-content">
+      <h1>Hi, I'm <span class="accent">Ivan Begonja</span></h1>
+      <p>Electronics Student &amp; Developer — innovating in hardware &amp; software.</p>
     </div>
   </header>
 
-  <!-- ABOUT -->
   <section id="about">
     <h2 class="reveal">About Me</h2>
-    <div class="about-container glass reveal" style="padding: 40px; margin-top:40px;">
+    <p class="section-subtitle reveal">A little background on who I am.</p>
+    <div class="about-container reveal">
       <p>
         I'm a developer and electronics enthusiast from Croatia, with expertise in building applications using Flutter,
         Nuxt.js, Vue, Node.js, and JavaScript. I also enjoy working on hardware projects, leveraging ESP32 and Arduino
@@ -353,24 +125,21 @@
         from app development to PCB design.
       </p>
       <p>
-        I’m passionate about electric vehicles, autonomous driving, and future technologies. Outside of tech, I love
+        I'm passionate about electric vehicles, autonomous driving, and future technologies. Outside of tech, I love
         traveling, exploring diverse cuisines, and have a soft spot for cats. My optimism drives my curiosity and
         passion for creating.
-      </p>
-      <p>
-        <a href="/Resume EN.pdf" target="_blank" class="resume-link">View my resume</a>
       </p>
     </div>
   </section>
 
-  <!-- SKILLS -->
   <section id="skills">
-    <h2 class="reveal">My Skills</h2>
+    <h2 class="reveal">Skills &amp; Expertise</h2>
+    <p class="section-subtitle reveal">Technologies and tools I work with.</p>
     <div class="skills-grid reveal">
-      <div class="skill-card glass">
+      <div class="skill-card">
         <h3>General Skills</h3>
         <ul>
-          <li>PCB & Circuit Design</li>
+          <li>PCB &amp; Circuit Design</li>
           <li>IoT Development</li>
           <li>App Development</li>
           <li>Team Player</li>
@@ -378,19 +147,19 @@
           <li>Adaptable and Hard-working</li>
         </ul>
       </div>
-      <div class="skill-card glass">
+      <div class="skill-card">
         <h3>Programming</h3>
         <ul>
           <li>Flutter</li>
           <li>C/C++ (ESP32, Arduino)</li>
           <li>JavaScript</li>
-          <li>Nuxt.js & Vue.js</li>
+          <li>Nuxt.js &amp; Vue.js</li>
           <li>Node.js</li>
           <li>Tailwind CSS</li>
         </ul>
       </div>
-      <div class="skill-card glass">
-        <h3>Cloud & Backend</h3>
+      <div class="skill-card">
+        <h3>Cloud &amp; Backend</h3>
         <ul>
           <li>Firebase</li>
           <li>Appwrite</li>
@@ -399,12 +168,12 @@
           <li>MongoDB</li>
         </ul>
       </div>
-      <div class="skill-card glass">
+      <div class="skill-card">
         <h3>Other Tools</h3>
         <ul>
-          <li>Git & GitHub</li>
+          <li>Git &amp; GitHub</li>
           <li>Figma</li>
-          <li>Linux & Bash</li>
+          <li>Linux &amp; Bash</li>
           <li>Continuous Integration</li>
           <li>Electronics Testing Equipment</li>
         </ul>
@@ -412,85 +181,72 @@
     </div>
   </section>
 
-  <!-- PROJECTS -->
   <section id="projects">
     <h2 class="reveal">Projects</h2>
+    <p class="section-subtitle reveal">A selection of things I've built.</p>
     <div class="projects-grid reveal">
-      <div class="project-card glass">
-        <img src="/wawe-img.png" alt="Wawe Home" />
+      <div class="project-card">
+        <div style="overflow:hidden"><img src="/wawe-img.png" alt="Wawe Home" /></div>
         <div class="project-content">
           <h3>Wawe Home</h3>
           <p>
             Wawe is a smart home startup simplifying home automation. Built with Flutter, Appwrite backend,
-            and ESP32 for modular IoT devices. PCB design, circuit development, and cross-platform app
-            programming all in one package.
+            and ESP32 for modular IoT devices.
           </p>
-          <a class="project-link" href="https://wawehome.com/" target="_blank">Project Website</a>
+          <a class="project-link" href="https://wawehome.com/" target="_blank" rel="noopener noreferrer">Visit Website</a>
         </div>
       </div>
-      <div class="project-card glass">
-        <img src="https://pbs.twimg.com/profile_banners/1373661554688864260/1666281849/1500x500" alt="BeyondSpaceNews"/>
+      <div class="project-card">
+        <div style="overflow:hidden"><img src="https://pbs.twimg.com/profile_banners/1373661554688864260/1666281849/1500x500" alt="BeyondSpaceNews"/></div>
         <div class="project-content">
           <h3>BeyondSpaceNews</h3>
           <p>
-            Beyond Space News was a cross-platform service delivering spaceflight news via website, app,
-            and social media. Built with Vue, Nuxt.js, Flutter, and Node.js, providing a comprehensive
-            platform for space enthusiasts.
+            A cross-platform service delivering spaceflight news via website, app,
+            and social media. Built with Vue, Nuxt.js, Flutter, and Node.js.
           </p>
         </div>
       </div>
-      <div class="project-card glass">
-        <img src="/ssteh-img.png" alt="Ssteh"/>
+      <div class="project-card">
+        <div style="overflow:hidden"><img src="/ssteh-img.png" alt="Ssteh"/></div>
         <div class="project-content">
           <h3>Ssteh</h3>
           <p>
-            Ssteh was an educational resource-sharing platform for high school students. It provided
-            curated materials and fostered collaborative learning using modern web/app technologies.
+            An educational resource-sharing platform for high school students with
+            curated materials and collaborative learning tools.
           </p>
-          <a class="project-link" href="https://ssteh.com/" target="_blank">Project Website</a>
+          <a class="project-link" href="https://ssteh-home.netlify.app/" target="_blank" rel="noopener noreferrer">View Archive</a>
         </div>
       </div>
-      <div class="project-card glass">
-        <img src="/waweai.png" alt="Ai Werable"/>
+      <div class="project-card">
+        <div style="overflow:hidden"><img src="/waweai.png" alt="AI Wearable"/></div>
         <div class="project-content">
-          <h3>Ai Werable</h3>
+          <h3>AI Wearable</h3>
           <p>
-            Ai Werable is a project that combines AI and wearable technology to create a truly personal
-            and useful AI assistant. Project is currently in development.
+            Combining AI and wearable technology to create a truly personal
+            and useful AI assistant. Currently in development.
           </p>
-          <a class="project-link" href="https://waweai.com/" target="">Project Website</a>
+          <a class="project-link" href="https://waweai.com/" target="_blank" rel="noopener noreferrer">Visit Website</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer id="contact">
     <div class="social-links reveal">
-      <a href="mailto:ivan@wawehome.com">Email</a> |
-      <a href="https://www.linkedin.com/in/ivan-begonja-b820091aa" target="_blank" rel="noopener noreferrer">LinkedIn</a> |
-      <a href="https://github.com/Sirius3615" target="_blank" rel="noopener noreferrer">GitHub</a> |
+      <a href="mailto:ivan@wawehome.com">Email</a>
+      <a href="https://www.linkedin.com/in/ivan-begonja-b820091aa" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="https://github.com/Sirius3615" target="_blank" rel="noopener noreferrer">GitHub</a>
       <a href="https://x.com/the_ivan0" target="_blank" rel="noopener noreferrer">Twitter</a>
     </div>
-    <p class="reveal">© <span id="year"></span> Ivan Begonja. All rights reserved.</p>
+    <p class="reveal">&copy; <span id="year"></span> Ivan Begonja. All rights reserved.</p>
   </footer>
 
-  <!-- JS for dynamic year & reveal on scroll -->
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
-
-    const revealElements = document.querySelectorAll('.reveal');
     const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if(entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
+      entries.forEach(entry => { if(entry.isIntersecting) entry.target.classList.add('visible'); });
     }, { threshold: 0.1 });
-
-    revealElements.forEach(el => {
-      revealObserver.observe(el);
-    });
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
   </script>
 </body>
 </html>

@@ -1,10 +1,30 @@
-body {
-    background-color: #080808;
-    color: #e0e0e0;
-    line-height: 1.7;
-    font-family: "Inter", sans-serif;
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #ffffff;
+    color: #1a1a2e;
+    line-height: 1.7;
+    font-family: "Inter", sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s ease;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
 }
 
 .navbar {
@@ -12,26 +32,33 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    background-color: #000000;
-    border-bottom: 1px solid #222;
+    background-color: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid #e5e7eb;
     z-index: 1000;
-    padding: 20px 40px;
+    padding: 16px 40px;
+    display: flex;
+    align-items: center;
 }
 
 .back-link {
-    color: #61dafb;
+    color: #2563eb;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 600;
+    font-size: 0.9rem;
     transition: color 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
 }
 
 .back-link:hover {
-    color: #fff;
+    color: #1d4ed8;
 }
 
 .back-link:before {
     content: "←";
-    margin-right: 8px;
 }
 
 .container {
@@ -42,41 +69,42 @@ body {
 
 .project-header {
     text-align: center;
-    margin-bottom: 60px;
+    margin-bottom: 48px;
 }
 
 .project-header h1 {
-    font-size: 3.5rem;
-    margin-bottom: 20px;
-    color: #fff;
-    background: linear-gradient(-45deg, #2b5099, #2f1161, #c93e3e, #4a8346);
-    background-size: 400% 400%;
-    animation: gradient 15s ease infinite;
-    padding: 40px 20px;
-    border-radius: 12px;
+    font-size: 2.8rem;
+    margin-bottom: 16px;
+    color: #ffffff;
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    padding: 48px 24px;
+    border-radius: 16px;
     margin-top: 0;
+    font-weight: 700;
+    letter-spacing: -0.02em;
 }
 
 .project-meta {
-    color: #888;
+    color: #6b7280;
     font-size: 0.9rem;
 }
 
 .project-content {
-    font-size: 1.1rem;
-    color: #b0b0b0;
-    background: #111;
+    font-size: 1.05rem;
+    color: #4b5563;
+    background: #ffffff;
     padding: 40px;
-    border-radius: 12px;
-    border: 1px solid #222;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 16px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
 }
 
 .project-content h2 {
-    font-size: 2rem;
-    color: #fff;
+    font-size: 1.6rem;
+    color: #1a1a2e;
     margin-top: 40px;
-    margin-bottom: 20px;
+    margin-bottom: 16px;
+    font-weight: 600;
 }
 
 .project-content h2:first-child {
@@ -84,17 +112,18 @@ body {
 }
 
 .project-content h3 {
-    font-size: 1.5rem;
-    color: #e0e0e0;
+    font-size: 1.3rem;
+    color: #374151;
     margin-top: 30px;
+    font-weight: 600;
 }
 
 .project-content img {
     width: 100%;
     height: auto;
     border-radius: 12px;
-    margin: 30px 0;
-    border: 1px solid #222;
+    margin: 28px 0;
+    border: 1px solid #e5e7eb;
 }
 
 .project-content p {
@@ -103,16 +132,16 @@ body {
 }
 
 .project-content a {
-    color: #61dafb;
+    color: #2563eb;
     text-decoration: none;
     border-bottom: 1px solid transparent;
     transition: all 0.3s;
-    font-weight: bold;
+    font-weight: 600;
 }
 
 .project-content a:hover {
-    color: #fff;
-    border-bottom-color: #fff;
+    color: #1d4ed8;
+    border-bottom-color: #1d4ed8;
 }
 
 .project-content ul {
@@ -121,36 +150,38 @@ body {
 }
 
 .project-content li {
-    margin-bottom: 0.7em;
+    margin-bottom: 0.6em;
     padding-left: 20px;
     position: relative;
+    color: #4b5563;
 }
 
 .project-content li::before {
-    content: '▹';
+    content: '';
     position: absolute;
     left: 0;
-    color: #61dafb;
-    font-weight: bold;
-}
-
-@keyframes gradient {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+    top: 10px;
+    width: 6px;
+    height: 6px;
+    background: #2563eb;
+    border-radius: 50%;
 }
 
 @media (max-width: 768px) {
-    .container {
-    padding: 100px 20px 40px;
+    .navbar {
+        padding: 14px 20px;
     }
-    
+
+    .container {
+        padding: 100px 20px 40px;
+    }
+
     .project-header h1 {
-    font-size: 2.5rem;
-    padding: 30px 20px;
+        font-size: 2rem;
+        padding: 36px 20px;
     }
 
     .project-content {
-    padding: 25px;
+        padding: 24px;
     }
 }
