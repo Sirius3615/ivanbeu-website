@@ -6,42 +6,68 @@
   <title>Privacy Policy - CLS</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: "Inter", sans-serif; background: #ffffff; color: #1a1a2e; line-height: 1.7; }
-    a { text-decoration: none; color: inherit; transition: color 0.3s; }
-
-    nav {
-      position: fixed; top: 0; left: 0; width: 100%;
-      background: rgba(255,255,255,0.92); backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid #e5e7eb; z-index: 1000; padding: 16px 40px;
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{
+      font-family:"Inter",sans-serif;background:#f4f0ec;color:#2d2a32;line-height:1.7;
+      position:relative;
     }
-    nav .inner { max-width: 1000px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
-    nav a.brand { font-weight: 700; font-size: 1.1rem; color: #1a1a2e; }
-    nav a.back { color: #2563eb; font-weight: 600; font-size: 0.9rem; }
-    nav a.back:hover { color: #1d4ed8; }
-
-    main { max-width: 800px; margin: 0 auto; padding: 120px 24px 60px; }
-    main h1 { font-size: 2.4rem; font-weight: 700; margin-bottom: 2rem; letter-spacing: -0.02em; }
-
-    .content-section { margin-bottom: 2.5rem; }
-    .content-section h2 { font-size: 1.3rem; font-weight: 600; color: #1a1a2e; margin-bottom: 0.75rem; }
-    .content-section p, .content-section li { color: #4b5563; font-size: 1rem; line-height: 1.8; }
-    .content-section ul { list-style: none; padding: 0; }
-    .content-section li { padding-left: 20px; position: relative; margin-bottom: 0.4em; }
-    .content-section li::before { content: ''; position: absolute; left: 0; top: 10px; width: 6px; height: 6px; background: #2563eb; border-radius: 50%; }
-
-    footer {
-      background: #0f172a; padding: 40px 20px; text-align: center; border-top: 1px solid #1e293b;
+    body::before{
+      content:'';position:fixed;top:-50%;left:-50%;width:200%;height:200%;
+      background:
+        radial-gradient(ellipse at 25% 45%,rgba(192,132,252,0.10) 0%,transparent 50%),
+        radial-gradient(ellipse at 75% 55%,rgba(56,189,248,0.08) 0%,transparent 50%);
+      z-index:0;pointer-events:none;
     }
-    footer p { color: #64748b; font-size: 0.85rem; }
+    a{text-decoration:none;color:inherit;transition:all .3s}
 
-    @media (max-width: 768px) {
-      nav { padding: 14px 20px; }
-      main { padding: 100px 20px 40px; }
-      main h1 { font-size: 1.8rem; }
+    nav{
+      position:fixed;top:16px;left:50%;transform:translateX(-50%);
+      width:calc(100% - 48px);max-width:800px;
+      background:rgba(255,255,255,0.5);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);
+      border:1px solid rgba(255,255,255,0.6);box-shadow:0 4px 30px rgba(0,0,0,0.06);
+      border-radius:16px;z-index:1000;padding:14px 28px;
+    }
+    nav .inner{display:flex;justify-content:space-between;align-items:center}
+    nav a.brand{font-family:"DM Serif Display",serif;font-size:1.2rem;color:#2d2a32}
+    nav a.back{color:#7c3aed;font-weight:600;font-size:.9rem}
+    nav a.back:hover{color:#6d28d9}
+
+    main{max-width:800px;margin:0 auto;padding:120px 24px 60px;position:relative;z-index:1}
+    main h1{
+      font-family:"DM Serif Display",serif;font-size:2.6rem;font-weight:400;
+      margin-bottom:2rem;color:#2d2a32;letter-spacing:-.01em;
+    }
+
+    .content-section{
+      margin-bottom:2.5rem;padding:28px 32px;border-radius:18px;
+      background:rgba(255,255,255,0.45);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+      border:1px solid rgba(255,255,255,0.55);box-shadow:0 8px 32px rgba(0,0,0,0.06);
+    }
+    .content-section h2{
+      font-family:"DM Serif Display",serif;font-size:1.3rem;font-weight:400;
+      color:#2d2a32;margin-bottom:.75rem;
+    }
+    .content-section p,.content-section li{color:#5a5662;font-size:1rem;line-height:1.8}
+    .content-section ul{list-style:none;padding:0}
+    .content-section li{padding-left:20px;position:relative;margin-bottom:.4em}
+    .content-section li::before{
+      content:'';position:absolute;left:0;top:10px;width:6px;height:6px;
+      background:linear-gradient(135deg,#7c3aed,#a855f7);border-radius:50%;
+    }
+
+    footer{
+      padding:40px 24px;text-align:center;position:relative;z-index:1;
+      border-top:1px solid rgba(124,58,237,0.08);
+    }
+    footer p{color:#9a94a5;font-size:.85rem}
+
+    @media(max-width:768px){
+      nav{padding:12px 18px;width:calc(100% - 32px);top:10px}
+      main{padding:100px 20px 40px}
+      main h1{font-size:1.9rem}
+      .content-section{padding:20px 24px}
     }
   </style>
 </head>
@@ -49,7 +75,7 @@
   <nav>
     <div class="inner">
       <a href="cls.html" class="brand">CLS</a>
-      <a href="cls.html" class="back">← Back to Home</a>
+      <a href="cls.html" class="back">Back to Home</a>
     </div>
   </nav>
 
@@ -99,7 +125,7 @@
     <div class="content-section">
       <h2>6. Contact Us</h2>
       <p>For any privacy-related questions or concerns, please contact us at:</p>
-      <p>Email: <a href="mailto:privacy@ivanb.eu" style="color:#2563eb;font-weight:600;">privacy@ivanb.eu</a></p>
+      <p>Email: <a href="mailto:privacy@ivanb.eu" style="color:#7c3aed;font-weight:600">privacy@ivanb.eu</a></p>
     </div>
 
     <div class="content-section">
