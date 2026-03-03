@@ -1,0 +1,11 @@
+{
+  "name": "ivanbeu-website",
+  "version": "1.0.0",
+  "description": "Ivan Beu personal website",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "start": "npx serve ."
+  }
+}
