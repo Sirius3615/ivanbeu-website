@@ -93,12 +93,12 @@ img {
 }
 
 .project-header h1 {
-    font-family: "DM Serif Display", serif;
+    
     font-size: 2.8rem;
     margin-bottom: 16px;
     color: #f4f4f5;
-    font-weight: 400;
-    letter-spacing: -0.02em;
+    font-weight: 500;
+    letter-spacing: -0.04em;
     padding: 48px 24px;
     border-radius:32px;
     background: rgba(24, 24, 27, 0.75);
@@ -127,12 +127,12 @@ img {
 }
 
 .project-content h2 {
-    font-family: "DM Serif Display", serif;
+    
     font-size: 1.6rem;
     color: #f4f4f5;
     margin-top: 40px;
     margin-bottom: 16px;
-    font-weight: 400;
+    font-weight: 500;
 }
 
 .project-content h2:first-child {
@@ -140,11 +140,11 @@ img {
 }
 
 .project-content h3 {
-    font-family: "DM Serif Display", serif;
+    
     font-size: 1.3rem;
     color: #f4f4f5;
     margin-top: 30px;
-    font-weight: 400;
+    font-weight: 500;
 }
 
 .project-content img {
