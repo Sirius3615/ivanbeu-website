@@ -25,4 +25,12 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('[data-year]').forEach((element) => {
     element.textContent = new Date().getFullYear();
   });
+
+  document.querySelectorAll('[data-birthdate]').forEach((element) => {
+    const [birthYear, birthMonth, birthDay] = element.dataset.birthdate.split('-').map(Number);
+    const today = new Date();
+    const birthdayHasPassed = (today.getMonth() + 1 > birthMonth)
+      || (today.getMonth() + 1 === birthMonth && today.getDate() >= birthDay);
+    element.textContent = today.getFullYear() - birthYear - (birthdayHasPassed ? 0 : 1);
+  });
 });

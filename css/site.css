@@ -194,6 +194,11 @@ button { font: inherit; }
 .about-intro { padding: clamp(34px, 6vw, 75px); border-right: 1px solid var(--line-strong); }
 .about-intro h2 { margin: 24px 0; font-size: clamp(2.7rem, 5.4vw, 5.5rem); line-height: .95; letter-spacing: -.065em; font-weight: 500; }
 .about-intro p { color: var(--muted); font-size: 1.08rem; }
+.about-intro [data-age] { color: var(--ink); font-weight: 600; }
+.profile-facts { display: grid; grid-template-columns: 1fr; margin-top: 38px; border-top: 1px solid var(--line-strong); }
+.profile-facts div { display: grid; grid-template-columns: 100px 1fr; gap: 18px; padding: 15px 0; border-bottom: 1px solid var(--line); }
+.profile-facts span { color: var(--copper); font-family: var(--mono); font-size: .58rem; letter-spacing: .07em; text-transform: uppercase; }
+.profile-facts strong { font-size: .8rem; font-weight: 500; }
 .capability-list { display: grid; }
 .capability { display: grid; grid-template-columns: 70px 1fr; gap: 20px; padding: 34px; border-bottom: 1px solid var(--line); }
 .capability:last-child { border-bottom: 0; }
