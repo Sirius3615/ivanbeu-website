@@ -1,11 +1,12 @@
 {
   "name": "ivanbeu-website",
   "version": "1.0.0",
-  "description": "Ivan Beu personal website",
+  "description": "Ivan Begonja — electronics and software portfolio",
   "engines": {
     "node": ">=22"
   },
   "scripts": {
-    "start": "npx serve ."
+    "start": "npx serve .",
+    "build": "node scripts/build-static.mjs"
   }
 }
