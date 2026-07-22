@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#e9e7df"><meta name="description" content="UNIfesb case study — a privacy-conscious native iOS hub for student life at FESB in Split."><title>UNIfesb — Ivan Begonja</title><link rel="stylesheet" href="/projects/styling.css"><script src="/js/site.js" defer></script></head>
+<body>
+  <a class="skip-link" href="#case-content">Skip to case study</a>
+  <header class="site-header"><nav class="case-nav case-shell"><a class="back-link" href="/#work">Selected work</a><a class="brand" href="/"><span class="brand-mark">IB</span><span>Ivan Begonja</span></a><span class="status">Native iOS / Active</span></nav></header>
+  <main id="case-content">
+    <header class="case-hero case-shell">
+      <div class="case-id"><span class="kicker">Case study / 01</span><span class="status">Student super-app · Latest project</span></div>
+      <div class="case-title-grid">
+        <div class="case-title"><div class="eyebrow">Commercially branded as Unispot</div><h1>UNIfesb</h1><p class="lead">One private, native iOS home for the academic, financial and everyday reality of studying at FESB.</p></div>
+        <dl class="spec"><div><dt>Scope</dt><dd>Native iOS, integrations and product design</dd></div><div><dt>Role</dt><dd>Product design and development</dd></div><div><dt>Period</dt><dd>2026—Present</dd></div><div><dt>Status</dt><dd>Active development</dd></div></dl>
+      </div>
+      <div class="case-cover" data-label="UNIfesb / Native iOS experience">
+        <div class="app-collage" aria-label="Three angled UNIfesb screens showing the timetable, home dashboard and canteen cameras">
+          <div class="app-shot app-shot--schedule"><img src="/assets/unifesb/schedule.jpg" alt="UNIfesb weekly class timetable"></div>
+          <div class="app-shot app-shot--home"><img src="/assets/unifesb/home.jpg" alt="UNIfesb personalized student dashboard"></div>
+          <div class="app-shot app-shot--canteens"><img src="/assets/unifesb/canteens.jpg" alt="UNIfesb live student canteen camera feeds"></div>
+        </div>
+      </div>
+    </header>
+
+    <div class="case-body case-shell">
+      <aside class="case-aside"><span class="mini-label">On this page</span><ol><li><a href="#brief">The product <span>01</span></a></li><li><a href="#system">Architecture <span>02</span></a></li><li><a href="#tools">Smart utilities <span>03</span></a></li><li><a href="#experience">Experience <span>04</span></a></li></ol></aside>
+      <article class="case-content">
+        <section class="case-section" id="brief">
+          <div class="case-section-head"><span>01</span><h2>A student day should not need six disconnected portals.</h2></div>
+          <p class="lede">FESB students move between timetable systems, identity providers, cafeteria services, job boards, sports feeds and faculty pages. UNIfesb turns those fragments into one cohesive iOS experience.</p>
+          <p>The app is tailored to the Faculty of Electrical Engineering, Mechanical Engineering and Naval Architecture in Split. It gives students a personal dashboard and purpose-built tools instead of simply placing university websites inside a mobile shell.</p>
+          <div class="role-grid">
+            <div class="role-card"><span class="mini-label">Academic</span><h3>Schedule and courses</h3><p>Offline timetables, change alerts, attendance context, course syllabuses and lecturer information.</p></div>
+            <div class="role-card"><span class="mini-label">Financial</span><h3>X-ica wallet</h3><p>Remaining subsidy, daily limits, spending statistics and itemized transaction history.</p></div>
+            <div class="role-card"><span class="mini-label">Campus</span><h3>Canteens in real time</h3><p>Live crowd cameras, daily menus and favorite restaurants help students decide where to eat.</p></div>
+            <div class="role-card"><span class="mini-label">Opportunity</span><h3>Jobs and UniSport</h3><p>Student contracts, open jobs, live matches, scores, schedules and league placements.</p></div>
+          </div>
+        </section>
+
+        <section class="case-section" id="system">
+          <div class="case-section-head"><span>02</span><h2>Native on the surface, resourceful underneath.</h2></div>
+          <p class="lede">Most source systems have no public JSON API and sit behind AAI@EduHr authentication. UNIfesb combines direct network requests with a controlled, headless WebKit engine to turn authenticated pages into reliable native data.</p>
+          <p>The entire scraping flow runs on the student’s device. Credentials remain in the iOS Keychain, WebKit scripts execute locally, and personal student records are never forwarded to an external service. Serialized local caches keep essential information available offline and feed the home-screen widgets.</p>
+          <div class="system-map"><div class="system-map-label">Private client-side data flow / simplified</div><div class="system-flow"><div class="system-node">SwiftUI client<small>Views + state</small></div><div class="system-node">Local cache<small>JSON + UserDefaults</small></div><div class="system-node">WebKit + URLSession<small>Auth + parsing</small></div><div class="system-node">Student portals<small>FESB / SRCE / SCST</small></div></div></div>
+          <h3>Technology stack</h3><ul class="stack-list"><li>Swift</li><li>SwiftUI</li><li>WKWebView</li><li>URLSession</li><li>Keychain</li><li>WidgetKit</li><li>Metal</li><li>SpriteKit</li><li>Local JSON cache</li><li>AAI@EduHr</li></ul>
+        </section>
+
+        <section class="case-section" id="tools">
+          <div class="case-section-head"><span>03</span><h2>Go beyond aggregation and improve the day.</h2></div>
+          <div class="decision-grid">
+            <div class="decision-card"><span class="mini-label">Gap optimiser</span><h3>Find a better timetable</h3><p>A local algorithm evaluates conflict-free alternative class groups to minimize total span, idle gaps or late starts.</p></div>
+            <div class="decision-card"><span class="mini-label">Awareness</span><h3>Notice what changed</h3><p>Cached calendars are compared over time so moved, cancelled or rescheduled classes can trigger useful alerts.</p></div>
+            <div class="decision-card"><span class="mini-label">At a glance</span><h3>Widgets before launch</h3><p>Schedule and X-ica widgets surface the next room, card balance, daily limit and current spending on the home screen.</p></div>
+            <div class="decision-card"><span class="mini-label">Resilience</span><h3>Fallback through WebKit</h3><p>When SAML redirects defeat a direct request, a background browser completes authentication and parses the same page locally.</p></div>
+          </div>
+        </section>
+
+        <section class="case-section" id="experience">
+          <div class="case-section-head"><span>04</span><h2>Utility with enough personality to feel personal.</h2></div>
+          <p class="lede">UNIfesb treats student infrastructure as a premium consumer product: native materials, clear colour coding and playful moments without compromising information density.</p>
+          <p>Semester Wrapped turns local attendance, classroom time and canteen spending into an interactive end-of-term story with achievements such as Early Bird, Perfect Week and Budget Master. The wider visual system includes a Metal raymarched glass orb and SpriteKit physics for tactile onboarding moments.</p>
+          <div class="screen-pair" aria-label="Additional UNIfesb interface screens"><figure><img src="/assets/unifesb/jobs.jpg" alt="UNIfesb student job board with hourly pay and categories"></figure><figure><img src="/assets/unifesb/wallet.jpg" alt="UNIfesb X-ica spending statistics and subsidy breakdown"></figure></div>
+          <div class="outcome-grid"><div class="outcome-card"><span class="mini-label">Design principle</span><h3>Calm outside</h3><p>Complex scraping, SSO and data normalization stay invisible behind an interface organized around the student’s day.</p></div><div class="outcome-card"><span class="mini-label">Current state</span><h3>Active development</h3><p>The product is expanding as Unispot, with the native architecture ready for deeper academic and campus utilities.</p></div></div>
+        </section>
+      </article>
+    </div>
+    <a class="next-project case-shell" href="/projects/wawe-home.html"><div><span>Next project / 02</span><h2>Wawe Home</h2></div><strong>→</strong></a>
+  </main>
+  <footer class="case-footer case-shell"><span>© <span data-year></span> Ivan Begonja</span><span>SwiftUI / Local-first / Student life</span><a href="mailto:ivan@ivanbegonja.com">Get in touch</a></footer>
+</body>
+</html>

@@ -137,6 +137,53 @@ button { font: inherit; }
 .project-card:hover .project-visual--natural img { filter: none; }
 .project-visual::after { content: attr(data-code); position: absolute; top: 14px; right: 14px; padding: 6px 8px; background: rgba(29,36,33,.82); color: var(--paper-2); font-family: var(--mono); font-size: .55rem; letter-spacing: .08em; }
 .project-visual.placeholder { color: var(--paper-2); background: var(--ink); }
+.app-collage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: inherit;
+  overflow: hidden;
+  isolation: isolate;
+  background:
+    radial-gradient(circle at 50% 42%, rgba(255,255,255,.92) 0 15%, transparent 47%),
+    linear-gradient(135deg, #cbd7eb, #dce7d1);
+}
+.app-collage::before {
+  content: '';
+  position: absolute;
+  width: 72%;
+  aspect-ratio: 1;
+  left: 14%;
+  top: -18%;
+  border: 1px solid rgba(29,36,33,.18);
+  border-radius: 50%;
+  box-shadow: 0 0 0 65px rgba(255,255,255,.10), 0 0 0 130px rgba(255,255,255,.07);
+}
+.app-shot {
+  position: absolute;
+  overflow: hidden;
+  width: 29%;
+  background: #f2f4f7;
+  border: clamp(3px, .55vw, 7px) solid var(--ink);
+  border-radius: clamp(18px, 2vw, 34px);
+  box-shadow: 0 22px 50px rgba(29,36,33,.24);
+  transform-origin: center bottom;
+  transition: transform .45s ease;
+}
+.app-shot img, .project-visual .app-shot img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  filter: none;
+  transform: none;
+}
+.app-shot--home { z-index: 3; left: 35.5%; top: 5%; width: 29%; transform: rotate(-1deg); }
+.app-shot--schedule { z-index: 2; left: 8%; top: 18%; transform: rotate(-9deg); }
+.app-shot--canteens { z-index: 1; right: 8%; top: 19%; transform: rotate(9deg); }
+.project-card:hover .app-shot img { transform: none; filter: none; }
+.project-card:hover .app-shot--home { transform: rotate(-1deg) translateY(-8px); }
+.project-card:hover .app-shot--schedule { transform: rotate(-9deg) translateY(-4px); }
+.project-card:hover .app-shot--canteens { transform: rotate(9deg) translateY(-4px); }
 .orbital { width: 230px; height: 230px; position: relative; border: 1px solid rgba(244,242,235,.35); border-radius: 50%; }
 .orbital::before { content: ''; position: absolute; inset: 22%; border: 1px solid var(--signal-light); border-radius: 50%; }
 .orbital::after { content: ''; position: absolute; width: 12px; height: 12px; top: -6px; left: calc(50% - 6px); border-radius: 50%; background: var(--copper); box-shadow: 0 0 0 8px rgba(169,97,61,.15); }
@@ -190,7 +237,11 @@ button { font: inherit; }
   .hero-bottom { align-items: flex-start; flex-direction: column; }
   .project-card { grid-template-columns: 34px 1fr; }
   .project-info h3 { margin-top: 36px; }
-  .project-visual { min-height: 260px; }
+    .project-visual { min-height: 260px; }
+    .app-shot { width: 34%; }
+    .app-shot--home { left: 33%; width: 34%; }
+    .app-shot--schedule { left: 3%; }
+    .app-shot--canteens { right: 3%; }
   .capability { grid-template-columns: 38px 1fr; padding: 26px 20px; }
   .contact-panel { min-height: 430px; padding-inline: 26px; }
   .footer { flex-direction: column; }

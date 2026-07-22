@@ -27,6 +27,11 @@
 .case-cover.placeholder { display: grid; place-items: center; background: var(--ink); color: var(--paper-2); }
 .case-cover .orbital { width: min(420px, 55vw); height: min(420px, 55vw); }
 .case-cover .orbit-label { font-size: clamp(2rem, 5vw, 4rem); }
+.case-cover .app-collage { min-height: 100%; }
+.case-cover .app-shot--home { width: 27%; left: 36.5%; top: 4%; }
+.case-cover .app-shot--schedule { width: 25%; left: 10%; top: 16%; }
+.case-cover .app-shot--canteens { width: 25%; right: 10%; top: 16%; }
+.case-cover .app-shot img { width: 100%; height: auto; object-fit: cover; filter: none; }
 
 .case-body { display: grid; grid-template-columns: 210px 1fr; gap: clamp(55px, 9vw, 130px); padding: clamp(80px, 11vw, 140px) 0; }
 .case-aside { align-self: start; position: sticky; top: 105px; }
@@ -62,6 +67,11 @@
 
 .stack-list { display: flex; flex-wrap: wrap; gap: 8px; margin: 35px 0 0; padding: 0; list-style: none; }
 .stack-list li { padding: 10px 12px; border: 1px solid var(--line-strong); font-family: var(--mono); font-size: .66rem; text-transform: uppercase; letter-spacing: .05em; }
+.screen-pair { display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(22px, 4vw, 48px); margin-top: 45px; padding: clamp(30px, 5vw, 58px); overflow: hidden; background: linear-gradient(135deg, #cbd7eb, var(--signal-light)); border: 1px solid var(--line-strong); }
+.screen-pair figure { position: relative; margin: 0; max-height: 600px; overflow: hidden; background: #f2f4f7; border: 5px solid var(--ink); border-radius: 30px; box-shadow: 0 22px 45px rgba(29,36,33,.2); }
+.screen-pair figure:first-child { transform: rotate(-4deg) translateY(12px); }
+.screen-pair figure:last-child { transform: rotate(4deg) translateY(-6px); }
+.screen-pair img { width: 100%; height: auto; }
 .next-project { display: grid; grid-template-columns: 1fr auto; align-items: end; gap: 30px; margin-bottom: 60px; padding: clamp(35px, 6vw, 70px); background: var(--signal-light); border: 1px solid var(--line-strong); }
 .next-project span { font-family: var(--mono); font-size: .62rem; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
 .next-project h2 { margin: 18px 0 0; font-size: clamp(2.8rem, 6vw, 6rem); line-height: .9; letter-spacing: -.07em; font-weight: 500; }
@@ -88,4 +98,6 @@
   .case-section-head { grid-template-columns: 40px 1fr; }
   .next-project { grid-template-columns: 1fr; }
   .case-footer { flex-direction: column; }
+  .screen-pair { gap: 14px; padding: 24px 14px; }
+  .screen-pair figure { border-width: 3px; border-radius: 18px; max-height: 430px; }
 }
