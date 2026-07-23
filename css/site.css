@@ -231,6 +231,15 @@ button { font: inherit; }
 .idea-schematic--drone::before { left: calc(50% - 96px); transform: rotate(10deg); }.idea-schematic--drone::after { right: calc(50% - 96px); transform: rotate(-10deg); }
 .idea-schematic--drone span::before { width: 92px; height: 28px; left: calc(50% - 46px); top: 66px; background: var(--ink); border-radius: 50% 50% 30% 30%; box-shadow: 0 48px 0 -24px var(--copper); }
 .idea-schematic--drone span::after { width: 1px; height: 58px; left: 50%; top: 94px; background: var(--ink); }
+.idea-schematic--vehicle { background: var(--paper-2); }
+.idea-schematic--vehicle::before { width: 230px; height: 72px; left: calc(50% - 115px); top: 70px; border: 1px solid var(--ink); border-radius: 55% 55% 18px 18px; background: var(--signal-light); }
+.idea-schematic--vehicle::after { width: 140px; height: 45px; left: calc(50% - 70px); top: 42px; border: 1px solid var(--ink); border-bottom: 0; border-radius: 60px 60px 0 0; }
+.idea-schematic--vehicle span::before, .idea-schematic--vehicle span::after { width: 34px; height: 34px; top: 124px; border: 7px solid var(--ink); border-radius: 50%; background: var(--paper-2); }
+.idea-schematic--vehicle span::before { left: calc(50% - 85px); }.idea-schematic--vehicle span::after { right: calc(50% - 85px); }
+.article-sources { margin-top: 70px; padding-top: 26px; border-top: 1px solid var(--line-strong); }
+.article-sources h2 { margin: 0 0 14px; font-family: var(--mono); font-size: .64rem; letter-spacing: .09em; text-transform: uppercase; }
+.article-sources p { font-size: .84rem; line-height: 1.6; }
+.article-sources a { text-decoration: underline; text-decoration-color: var(--copper); text-underline-offset: 3px; }
 .idea-card-copy { padding: 28px 30px 32px; display: flex; flex-direction: column; }
 .idea-meta { display: flex; justify-content: space-between; gap: 20px; color: var(--copper); font-family: var(--mono); font-size: .6rem; letter-spacing: .08em; text-transform: uppercase; }
 .idea-card h3 { margin: 28px 0 16px; max-width: 570px; font-size: clamp(1.8rem, 3.4vw, 3rem); line-height: .98; letter-spacing: -.052em; font-weight: 500; }

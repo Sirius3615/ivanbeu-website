@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#e9e7df">
+  <meta name="description" content="Ivan Begonja on why Tesla's fleet-learning approach is the better path to scalable autonomy—and why robotaxis still need sensor and system redundancy.">
+  <meta property="og:title" content="Tesla has the better path to autonomy—but vision should not stand alone">
+  <meta property="og:description" content="Fleet learning can scale the intelligence. Sensor and system redundancy can make it dependable.">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://ivanb.eu/assets/og-blog.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>Tesla has the better path to autonomy—but vision should not stand alone — Ivan Begonja</title>
+  <link rel="stylesheet" href="/css/site.css">
+  <script src="/js/site.js" defer></script>
+</head>
+<body>
+  <div class="reading-progress" data-reading-progress aria-hidden="true"></div>
+  <a class="skip-link" href="#article">Skip to article</a>
+  <header class="site-header"><nav class="nav shell" aria-label="Main navigation"><a class="brand" href="/" aria-label="Ivan Begonja, home"><span class="brand-mark">IB</span><span>Ivan Begonja <small>/ Electronics + software</small></span></a><button class="menu-button" type="button" data-menu aria-expanded="false" aria-controls="nav-links">Menu</button><ul class="nav-links" id="nav-links" data-nav-links><li><a href="/#work"><span class="nav-index">01</span>Work</a></li><li><a href="/blog/" aria-current="page"><span class="nav-index">02</span>Ideas</a></li><li><a href="/#about"><span class="nav-index">03</span>About</a></li><li><a href="/#contact"><span class="nav-index">04</span>Contact</a></li></ul></nav></header>
+
+  <main id="article">
+    <article>
+      <header class="article-hero">
+        <div class="shell">
+          <div class="article-breadcrumb"><a href="/">Home</a><span>/</span><a href="/blog/">Ideas</a><span>/</span><span>Autonomous vehicles</span></div>
+          <div class="article-header-grid">
+            <div class="article-index">Field note<br>005 / 005</div>
+            <div class="article-heading">
+              <h1>Tesla has the better path to autonomy—but vision should not stand alone</h1>
+              <p class="article-deck">Tesla’s camera-first, fleet-learning approach has the stronger chance of making autonomous driving general and affordable. To deserve control of a robotaxi, it should be paired with genuinely independent ways to perceive failure.</p>
+              <div class="article-meta"><span><strong>Topic</strong> / Autonomous vehicles</span><span><strong>Published</strong> / 23 Jul 2026</span><span><strong>Reading time</strong> / 9 minutes</span></div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <div class="article-signal" aria-hidden="true"></div>
+
+      <div class="article-layout shell">
+        <aside class="article-rail"><div class="article-rail-inner"><span class="article-rail-title">On this signal</span><nav aria-label="Article sections"><a href="#two-paths">Two paths</a><a href="#tesla-scales">Why Tesla scales</a><a href="#waymo-right">What Waymo gets right</a><a href="#second-view">A second view</a><a href="#redundancy">Real redundancy</a><a href="#synthesis">The system I want</a></nav></div></aside>
+        <div class="article-body">
+          <p class="standfirst">Autonomous driving is one of those engineering problems where an impressive demonstration and a scalable product can look almost identical—right until you ask the system to work everywhere, in every season, at a price ordinary people can afford.</p>
+
+          <p>I believe Tesla is pursuing the better foundation for that larger goal. Its approach treats autonomy primarily as an AI and data problem: cameras observe the road, neural networks build a useful representation of it, and a very large vehicle fleet continuously exposes the system to the long tail of real driving.</p>
+          <p>Waymo has taken a different path. Its vehicles combine cameras, lidar and radar with detailed maps and a carefully engineered operating area. That approach is more visibly redundant and has produced a mature driverless service. But I think it is harder to turn into a general solution that can spread to millions of normal vehicles and unfamiliar roads.</p>
+          <p>The interesting answer is not to copy either system without question. I would keep Tesla’s software-first route to scale, then strengthen it with some of the independent perception and fail-safe thinking that Waymo gets right.</p>
+
+          <h2 id="two-paths">Two philosophies of the road</h2>
+          <p>Tesla describes its autonomy architecture as camera-only, using neural networks trained on data from a global fleet of millions of vehicles. Its AI work includes per-camera perception, monocular depth estimation and a bird’s-eye-view representation built from the video streams around the car. The ambition is a general driving intelligence that can interpret the road as it exists, instead of requiring each road to be prepared for the vehicle.</p>
+          <p>That same architecture has an unusual route to distribution. A Tesla is already a mass-produced electric car with cameras and onboard compute. Improvements can arrive through software, and fleet encounters can identify scenarios worth adding to training and validation. Tesla’s current Robotaxi service starts with Model Y, while the purpose-built Cybercab is intended to follow.</p>
+          <p>Waymo builds a richer dedicated sensing system. Its sixth-generation hardware combines cameras, lidar and radar with overlapping fields of view. Before the Waymo Driver operates in a new area, the territory is mapped in detail; the vehicle then matches live sensor data against that prior knowledge and uses AI to perceive, predict and plan.</p>
+          <div class="article-note"><span>The difference in one line</span><p>Tesla is trying to make the car understand whatever road it sees. Waymo is trying to give the car the best possible understanding of a defined road before the ride begins.</p></div>
+          <p>Both use neural networks. Both learn from fleet experience and simulation. The difference is not “AI versus rules” or “smart versus safe.” It is where each company chooses to place complexity, and how that choice affects generality, cost and redundancy.</p>
+
+          <h2 id="tesla-scales">Why I think Tesla’s path scales better</h2>
+          <p>Autonomy will make the biggest difference when it stops being a specialized service and becomes a capability that can exist across normal vehicles. That demands an architecture whose cost falls with vehicle production and whose intelligence improves across widely varied places.</p>
+          <p>Tesla has three important advantages here.</p>
+          <h3>1. The data represents ordinary driving</h3>
+          <p>A large consumer fleet encounters construction, unusual lane markings, temporary signs, rural roads, difficult junctions and local driving behavior every day. The value is not only the number of kilometres. It is the diversity. General autonomy will be won by finding and learning from rare combinations that a smaller test fleet may encounter slowly.</p>
+          <h3>2. The vehicle does not need a sensor tower</h3>
+          <p>Cameras are compact, inexpensive and already useful for many safety and parking functions. If the core autonomy problem can be solved with production cameras and onboard compute, the additional hardware cost of enabling the software is much lower. That matters enormously for a robotaxi network, where vehicle cost and energy use shape the price of every ride.</p>
+          <h3>3. The system is forced to generalize</h3>
+          <p>Detailed maps are valuable context, but they can become a dependency. A vision-first system has to read the current road: cones, temporary markings, hand signals, a delivery vehicle blocking a lane. It cannot assume the world still matches a perfect prior description.</p>
+          <blockquote>The best autonomy stack is not the one that knows one city with absolute detail. It is the one that can arrive in a new city and learn to drive it safely.</blockquote>
+          <p>None of this proves that Tesla’s system is already capable of unrestricted autonomy. Tesla itself distinguishes supervised features in customer vehicles from its Robotaxi service. My point is about architecture: fleet-scale learning and affordable hardware create a more plausible path from a limited service to a widely available one.</p>
+
+          <h2 id="waymo-right">Waymo is solving things Tesla should not ignore</h2>
+          <p>Preferring Tesla’s route to scale does not mean dismissing Waymo. Waymo’s engineering exposes an important truth: a robotaxi is not only a perception model. It is a safety-critical machine that must remain understandable and controllable when something fails.</p>
+          <p>Waymo uses complementary sensor modalities because each one describes the world differently. Cameras provide rich visual meaning. Lidar measures detailed 3D geometry and distance. Radar directly measures relative motion and continues to provide useful information in conditions that can reduce camera visibility.</p>
+          <p>Its redundancy goes beyond sensors. Waymo describes secondary steering and braking systems, backup power and redundant inertial measurement. That is the correct scope. An autonomous vehicle cannot be considered redundant because it has two computers if both depend on the same power rail, the same corrupted input or the same software assumption.</p>
+          <p>Detailed maps also have real benefits. They give the vehicle prior context about lane geometry, crosswalks, signals and road rules, while live perception handles what has changed. I still see map creation as a constraint on rapid global scale, but inside an active robotaxi area it can add useful confidence and smoother planning.</p>
+          <p>Waymo’s approach is therefore not “wrong.” It optimizes for dependable autonomy inside a defined operating domain. Tesla optimizes for a general intelligence that can eventually expand the domain. I think the second goal is more transformative, but the first contains safety lessons worth carrying over.</p>
+
+          <h2 id="second-view">Vision should be primary, not alone</h2>
+          <p>Tesla’s argument for vision is powerful: people drive using eyes, so a sufficiently capable neural network should be able to drive using cameras. Cameras also capture the exact semantic information roads are designed to communicate—colours, signs, gestures, lane markings and light states.</p>
+          <p>But an autonomous system does not have to reproduce the minimum set of senses a human uses. It can be better than us. The objective is not to prove that cameras are enough under ideal conditions; it is to build the most dependable perception system that can be produced economically.</p>
+          <p>Weather makes this clear. Heavy rain can cover a lens and create reflections. Fog reduces contrast. Low sun can produce glare. Snow can hide lane geometry and change the visual texture of the entire road. Dirt, condensation or a damaged camera can remove part of the vehicle’s view. More cameras help with coverage, but several cameras can still fail for the same reason.</p>
+          <p>A different sensing modality creates a different failure pattern. Radar is especially attractive as a practical companion because it can measure range and relative velocity and remains useful through rain, fog and road spray. High-resolution imaging radar is improving, and a vehicle can integrate it without the visual and cost impact of a large roof-mounted sensor suite.</p>
+          <p>Lidar provides extremely clear 3D geometry and precise distance. It is not immune to weather, and cost and integration still matter, but it can act as an independent geometric check when a camera model is uncertain. Even a more limited lidar configuration could be valuable if it is designed as a verifier rather than as the primary author of the entire scene.</p>
+          <div class="article-note"><span>My preferred hierarchy</span><p>Let vision and AI do the rich understanding because that is the route to generality. Use radar or lidar as an independent view that can challenge the result, measure motion and geometry, and trigger a safer response when the views disagree.</p></div>
+          <p>The additional sensor should not become an excuse for weaker vision. Tesla’s camera system should remain capable of driving the complete task. The second modality should make uncertainty observable. If vision says the path is clear while radar repeatedly sees a stationary return ahead, the correct response is not to average the two until the obstacle disappears. The system should recognize disagreement, slow down and gather more evidence.</p>
+
+          <h2 id="redundancy">Redundancy has to reach the wheels</h2>
+          <p>Sensor diversity is only one layer. A robotaxi carries people with no driver ready to repair a software fault at 80 kilometres per hour. Every critical path from perception to physical control needs a defined failure response.</p>
+          <ul>
+            <li>Overlapping cameras with cleaning, heating and continuous obstruction detection.</li>
+            <li>A complementary sensor whose failure modes are genuinely different from vision.</li>
+            <li>Independent compute capable of reaching a safe stop if the primary autonomy computer fails.</li>
+            <li>Backup power for perception, steering, braking, communications and hazard signalling.</li>
+            <li>Steering and braking systems that retain controlled authority after a single fault.</li>
+            <li>A minimal-risk planner that does not depend on the full AI stack remaining healthy.</li>
+          </ul>
+          <p>Software redundancy also needs diversity. Running the same neural network twice does not protect against the same model misunderstanding the same scene. A smaller independent monitor can check hard safety constraints: available stopping distance, collision trajectory, speed for the measured visibility and whether the planned path enters occupied space.</p>
+          <p>The vehicle should continuously calculate how much of its capability remains. If a camera is blocked, a radar becomes unavailable or localization confidence drops, the car should reduce speed and operating range. If the remaining system cannot guarantee a safe continuation, it should reach a minimal-risk state before the problem becomes an emergency.</p>
+          <p>This is where autonomous driving can exceed human driving. A human often notices impaired visibility only after continuing too fast. A machine can quantify sensor health, estimate stopping margin and obey a conservative limit every time.</p>
+
+          <h2 id="synthesis">The autonomous system I want to see</h2>
+          <p>My ideal robotaxi looks more like Tesla from the outside and more like a synthesis of both companies underneath.</p>
+          <p>It is a normal, efficient electric vehicle built in large numbers. Its cameras and neural networks perform the primary driving task. It learns from a broad fleet, uses simulation to replay dangerous edge cases and receives improvements through software. It can enter a new region without requiring every street to be scanned first.</p>
+          <p>But it also carries a different way of seeing—most likely imaging radar, possibly supported by compact lidar where the safety benefit justifies it. It has redundant compute, power, braking and steering. It treats sensor disagreement as important information. It exposes uncertainty and changes its behavior before confidence becomes too low.</p>
+          <p>This combination protects the reason I prefer Tesla’s approach in the first place. Adding one complementary sensor does not have to turn the vehicle into an expensive laboratory. It can make the scalable architecture more robust while the intelligence remains software-defined.</p>
+          <p>Tesla is right, in my view, that autonomy has to be solved as a general AI problem if it is going to reach the whole world. Waymo is right that a driverless vehicle needs complementary perception and deep physical redundancy. The company that combines those ideas most effectively may build the first autonomous system that is not only impressive, but ordinary—and ordinary is when it starts changing transport.</p>
+
+          <div class="article-end"><div class="kicker">End signal / 005</div><p>I want autonomy to scale because safer, electric, continuously used vehicles could change how cities move. The standard should be ambitious: intelligence that generalizes, hardware people can afford and redundancy that never assumes the intelligence is infallible.</p></div>
+
+          <div class="article-sources">
+            <h2>Primary material / Further reading</h2>
+            <p><a href="https://www.tesla.com/AI?redirect=no" target="_blank" rel="noreferrer">Tesla — AI &amp; Robotics</a> · <a href="https://www.tesla.com/robotaxi" target="_blank" rel="noreferrer">Tesla — Robotaxi</a> · <a href="https://www.tesla.com/sites/default/files/downloads/TSLA-Q2-2025-Update.pdf" target="_blank" rel="noreferrer">Tesla — Q2 2025 Update</a> · <a href="https://waymo.com/blog/2024/08/meet-the-6th-generation-waymo-driver/" target="_blank" rel="noreferrer">Waymo — Sixth-generation Driver</a> · <a href="https://waymo.com/waymo-driver/" target="_blank" rel="noreferrer">Waymo — How the Driver works</a></p>
+          </div>
+        </div>
+      </div>
+    </article>
+    <aside class="next-article shell"><div class="kicker">Back to signal / 001</div><a href="/blog/humanoids-ai-robots.html"><h2>Humanoids are a software problem wearing a hardware body</h2><span class="idea-link">Continue reading</span></a></aside>
+    <section class="contact shell"><div class="contact-panel reveal"><div class="kicker">Continue the signal</div><h2>Building autonomous systems?</h2><div class="contact-actions"><a href="mailto:ivan@ivanbegonja.com?subject=Autonomous vehicles">Let’s talk ↗</a><a href="/blog/">All ideas</a></div></div><footer class="footer"><span>© <span data-year></span> Ivan Begonja</span><span>Ideas &amp; signals / Field note 005</span><span>Zadar, Croatia</span></footer></section>
+  </main>
+</body>
+</html>
