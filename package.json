@@ -7,6 +7,7 @@
   },
   "scripts": {
     "start": "npx serve .",
-    "build": "node scripts/build-static.mjs"
+    "build": "node scripts/build-static.mjs",
+    "new:article": "node scripts/new-article.mjs"
   }
 }

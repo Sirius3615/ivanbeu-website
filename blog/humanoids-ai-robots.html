@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#e9e7df">
+  <meta name="description" content="Ivan Begonja on why humanoid robotics is primarily a software and AI challenge—and why low cost, redundancy and human-focused safety matter.">
+  <meta property="og:title" content="Humanoids are a software problem wearing a hardware body">
+  <meta property="og:description" content="Why intelligence, redundancy and mass accessibility matter more than perfect hardware.">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://ivanb.eu/assets/og-blog.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>Humanoids are a software problem wearing a hardware body — Ivan Begonja</title>
+  <link rel="stylesheet" href="/css/site.css">
+  <script src="/js/site.js" defer></script>
+</head>
+<body>
+  <div class="reading-progress" data-reading-progress aria-hidden="true"></div>
+  <a class="skip-link" href="#article">Skip to article</a>
+  <header class="site-header">
+    <nav class="nav shell" aria-label="Main navigation">
+      <a class="brand" href="/" aria-label="Ivan Begonja, home"><span class="brand-mark">IB</span><span>Ivan Begonja <small>/ Electronics + software</small></span></a>
+      <button class="menu-button" type="button" data-menu aria-expanded="false" aria-controls="nav-links">Menu</button>
+      <ul class="nav-links" id="nav-links" data-nav-links><li><a href="/#work"><span class="nav-index">01</span>Work</a></li><li><a href="/blog/" aria-current="page"><span class="nav-index">02</span>Ideas</a></li><li><a href="/#about"><span class="nav-index">03</span>About</a></li><li><a href="/#contact"><span class="nav-index">04</span>Contact</a></li></ul>
+    </nav>
+  </header>
+
+  <main id="article">
+    <article>
+      <header class="article-hero">
+        <div class="shell">
+          <div class="article-breadcrumb"><a href="/">Home</a><span>/</span><a href="/blog/">Ideas</a><span>/</span><span>Robotics</span></div>
+          <div class="article-header-grid">
+            <div class="article-index">Field note<br>001 / 004</div>
+            <div class="article-heading">
+              <h1>Humanoids are a software problem wearing a hardware body</h1>
+              <p class="article-deck">If we can make capable humanoid robots cheap enough to scale, they could become one of the most useful technologies we have ever built. The key will not be perfect mechanics. It will be the intelligence that makes imperfect mechanics work.</p>
+              <div class="article-meta"><span><strong>Topic</strong> / Robotics + AI</span><span><strong>Published</strong> / 23 Jul 2026</span><span><strong>Reading time</strong> / 8 minutes</span></div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <div class="article-signal" aria-hidden="true"></div>
+
+      <div class="article-layout shell">
+        <aside class="article-rail">
+          <div class="article-rail-inner"><span class="article-rail-title">On this signal</span><nav aria-label="Article sections"><a href="#why-humanoid">Why humanoid</a><a href="#software">The software majority</a><a href="#scale">Scale changes everything</a><a href="#safety">Safety by design</a><a href="#getting-involved">Getting involved</a></nav></div>
+        </aside>
+        <div class="article-body">
+          <p class="standfirst">I keep following humanoid robotics because it sits exactly where my interests meet: electronics, embedded control, AI and a very physical definition of whether a system actually works.</p>
+
+          <p>There is no hiding behind a polished interface when a robot has to pick up an awkward box, walk across an uneven floor or react when a person steps into its path. Every layer has to cooperate. Sensors, power electronics, motors, mechanics, perception, planning and control all become one product.</p>
+          <p>That difficulty is what makes the field compelling. It is also why I want to get involved—through my own project, or by joining a company serious about moving humanoids from impressive demos to dependable machines.</p>
+
+          <h2 id="why-humanoid">Why build a humanoid at all?</h2>
+          <p>Our world is already designed around the human body. Doors, handles, stairs, tools, shelves, vehicles and workstations all assume a particular range of motion and scale. A humanoid does not need the human form because it looks futuristic. It needs it because that form is a compatibility layer for the infrastructure we already have.</p>
+          <p>Special-purpose machines will always win at special-purpose work. A fixed industrial arm is simpler and faster inside a carefully controlled cell. A wheeled platform is more efficient on a flat warehouse floor. But the promise of a humanoid is generality: one machine that can enter a human space and learn many different tasks without rebuilding the space around it.</p>
+          <blockquote>The real product is not a robot that can perform one demonstration. It is a physical platform that can keep learning useful work.</blockquote>
+
+          <h2 id="software">Hardware is one third of the story</h2>
+          <p>I see hardware as roughly one third of the problem. It establishes the physical limits: payload, reach, accuracy, battery life, thermal capacity and durability. Those limits matter. But the major part of the capability comes from the software and AI controlling the machine.</p>
+          <p>A robot with excellent actuators and poor control is still a poor robot. It will hesitate, misread the scene, waste energy and fail as soon as the environment stops matching its assumptions. Meanwhile, mediocre hardware paired with exceptional estimation, planning and adaptive control can become surprisingly capable.</p>
+          <p>We already see this pattern across engineering. Computational photography extracts remarkable images from tiny sensors. Modern vehicles use control software to turn a collection of imperfect physical parts into a stable, responsive system. Robotics can push the same idea much further.</p>
+          <div class="article-note"><span>My working model</span><p>The hardware defines the envelope. The software decides how much of that envelope is usable. Intelligence expands what the whole system can do without requiring every mechanical component to be exotic.</p></div>
+          <p>This is not an argument for careless hardware. Reliability, maintainability and good sensing remain essential. It is an argument for spending complexity intelligently. A slightly less capable actuator may be the correct choice if it is cheaper, easier to replace and supported by control software that understands its limits.</p>
+
+          <h2 id="scale">Low cost changes the size of the opportunity</h2>
+          <p>The most exciting version of humanoid robotics is not a perfect machine that costs as much as a house. It is a useful machine that can be produced, maintained and deployed at real scale.</p>
+          <p>If robots become genuinely affordable, the applications stop being limited to a few showcase factories. They can take on dangerous inspections, repetitive material handling, support work in understaffed services and physical tasks that damage people over time. They can also become development platforms for thousands of smaller companies and independent builders.</p>
+          <p>Cost therefore cannot be an afterthought. It has to shape the architecture from the beginning:</p>
+          <ul>
+            <li>Use standardized components where custom parts do not create a meaningful advantage.</li>
+            <li>Design modules to be replaced quickly instead of requiring specialist repair.</li>
+            <li>Let software compensate for tolerances where doing so is safe and predictable.</li>
+            <li>Build a platform that improves through fleet learning rather than tuning every unit by hand.</li>
+          </ul>
+          <p>Scale also creates a data advantage. Every deployed robot can encounter different objects, rooms and edge cases. With the right privacy and safety boundaries, those experiences can make the whole fleet better. That learning loop may eventually matter more than any single hardware revision.</p>
+
+          <h2 id="safety">Redundancy and human-focused rules</h2>
+          <p>A general-purpose robot will operate close to people, so “usually safe” is not enough. Safety has to exist at several independent levels. A perception model can identify a person, but a separate low-level system should still limit force and speed. A motion plan can avoid a collision, but the machine should also be able to stop safely when a sensor becomes unreliable.</p>
+          <p>Redundancy is key because every individual component will eventually fail. The system should compare sensors, notice disagreement and move into a safe state. Critical joints should understand their own temperature and load. Power should fail predictably. A network outage must not remove the robot’s ability to protect the person standing next to it.</p>
+          <p>I also believe robots need clear human-focused rules. Not vague promises added after the model is trained, but engineering constraints that shape planning and control:</p>
+          <ul>
+            <li>Human safety has priority over task completion and speed.</li>
+            <li>The robot should expose uncertainty instead of pretending to know.</li>
+            <li>Actions with higher potential harm need stronger confirmation and lower physical limits.</li>
+            <li>People nearby need an obvious way to understand, pause and override the machine.</li>
+          </ul>
+          <p>These rules should be testable. We should be able to create failure cases, measure the response and prove that the lower-level safeguards work even when the high-level AI is wrong.</p>
+
+          <h2 id="getting-involved">I want to help make this real</h2>
+          <p>Humanoids bring together nearly every engineering problem I enjoy: power, sensing, embedded systems, controls, machine learning, product design and the messy reality of a physical environment. I want to learn by building inside that stack.</p>
+          <p>That could start with a smaller project—a joint module, a perception-and-control experiment or a low-cost mobile manipulator. It could also mean joining a team working on the full platform. The specific entry point matters less to me than the direction: making intelligent machines more capable, safer and cheap enough to be genuinely useful.</p>
+          <p>The future I find interesting is not one where a robot occasionally performs a perfect chore on camera. It is one where the machine quietly does thousands of useful tasks, handles small failures without drama and makes difficult physical work safer for the people around it.</p>
+
+          <div class="article-end"><div class="kicker">End signal / 001</div><p>This is a working opinion, not a finished conclusion. If you are building in robotics—or think I have underestimated a part of the problem—I would like to hear from you.</p></div>
+        </div>
+      </div>
+    </article>
+
+    <aside class="next-article shell"><div class="kicker">Next signal / 002</div><a href="/blog/electric-vehicles-renewables.html"><h2>The EV transition will be won by efficiency, not battery size</h2><span class="idea-link">Continue reading</span></a></aside>
+    <section class="contact shell"><div class="contact-panel reveal"><div class="kicker">Continue the signal</div><h2>Building useful robots?</h2><div class="contact-actions"><a href="mailto:ivan@ivanbegonja.com?subject=Humanoid robotics">Let’s talk ↗</a><a href="/blog/">All ideas</a></div></div><footer class="footer"><span>© <span data-year></span> Ivan Begonja</span><span>Ideas &amp; signals / Field note 001</span><span>Zadar, Croatia</span></footer></section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#e9e7df">
+  <meta name="description" content="Ivan Begonja on AI agents, local-first operation, transaction trust and the remarkable impact of coding agents.">
+  <meta property="og:title" content="AI agents become infrastructure when they can run locally">
+  <meta property="og:description" content="The useful future is private, affordable and dependable enough to trust with real work.">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://ivanb.eu/assets/og-blog.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>AI agents become infrastructure when they can run locally — Ivan Begonja</title>
+  <link rel="stylesheet" href="/css/site.css">
+  <script src="/js/site.js" defer></script>
+</head>
+<body>
+  <div class="reading-progress" data-reading-progress aria-hidden="true"></div>
+  <a class="skip-link" href="#article">Skip to article</a>
+  <header class="site-header"><nav class="nav shell" aria-label="Main navigation"><a class="brand" href="/" aria-label="Ivan Begonja, home"><span class="brand-mark">IB</span><span>Ivan Begonja <small>/ Electronics + software</small></span></a><button class="menu-button" type="button" data-menu aria-expanded="false" aria-controls="nav-links">Menu</button><ul class="nav-links" id="nav-links" data-nav-links><li><a href="/#work"><span class="nav-index">01</span>Work</a></li><li><a href="/blog/" aria-current="page"><span class="nav-index">02</span>Ideas</a></li><li><a href="/#about"><span class="nav-index">03</span>About</a></li><li><a href="/#contact"><span class="nav-index">04</span>Contact</a></li></ul></nav></header>
+
+  <main id="article">
+    <article>
+      <header class="article-hero">
+        <div class="shell">
+          <div class="article-breadcrumb"><a href="/">Home</a><span>/</span><a href="/blog/">Ideas</a><span>/</span><span>AI agents</span></div>
+          <div class="article-header-grid">
+            <div class="article-index">Field note<br>003 / 004</div>
+            <div class="article-heading">
+              <h1>AI agents become infrastructure when they can run locally</h1>
+              <p class="article-deck">Agents can remove an enormous amount of repetitive work. For that usefulness to last, the everyday version needs to be private, affordable and boringly dependable—not a metered luxury attached to every simple action.</p>
+              <div class="article-meta"><span><strong>Topic</strong> / AI agents</span><span><strong>Published</strong> / 23 Jul 2026</span><span><strong>Reading time</strong> / 7 minutes</span></div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <div class="article-signal" aria-hidden="true"></div>
+
+      <div class="article-layout shell">
+        <aside class="article-rail"><div class="article-rail-inner"><span class="article-rail-title">On this signal</span><nav aria-label="Article sections"><a href="#repetition">Repetitive work</a><a href="#local">Local by default</a><a href="#trust">The trust boundary</a><a href="#coding">Coding is different</a><a href="#interface">The new interface</a></nav></div></aside>
+        <div class="article-body">
+          <p class="standfirst">The most powerful thing about an AI agent is not that it can answer a question. It is that it can carry a task across tools, make decisions along the way and return with the result.</p>
+
+          <p>That shift sounds small until you compare it with how software normally works. Traditional software waits for us to translate a goal into a sequence of clicks. An agent can start with the goal. “Organize these files, compare the options, update the document and tell me what changed” is a completely different interface from opening four applications and operating each one manually.</p>
+          <p>I think agents will become one of the most powerful tools for repetitive digital work. But the first wave also reveals what must improve before they become dependable infrastructure.</p>
+
+          <h2 id="repetition">Give the repetition to the machine</h2>
+          <p>A large part of computer work is not intellectually difficult. It is coordination: copying information between systems, checking whether something changed, turning one format into another, applying the same update many times or collecting details before a person can make the real decision.</p>
+          <p>Agents are well suited to that middle layer. They can interpret enough context to handle variation without requiring a new automation for every edge case. A useful agent can:</p>
+          <ul>
+            <li>Monitor routine information and surface only meaningful changes.</li>
+            <li>Prepare reports from several sources without manual copy-and-paste.</li>
+            <li>Rename, classify and transform large groups of files.</li>
+            <li>Draft recurring communication while keeping the person in control of sending it.</li>
+            <li>Operate older systems that were never designed with good integrations.</li>
+          </ul>
+          <p>This is not about removing human judgment. It is about moving judgment to the point where it matters. People should define the goal, review consequential choices and handle ambiguous situations. The machine should carry the mechanical burden between those moments.</p>
+
+          <h2 id="local">The long-term version should run locally</h2>
+          <p>I do not think the durable future is paying a remote model a noticeable amount every time I ask my computer to turn on a playlist, rename a download or check a calendar. Cloud models make sense when the task needs their full capability. Everyday actions should not depend on an expensive round trip to a data centre.</p>
+          <blockquote>If an agent is meant to become part of the operating system, its basic intelligence should be available as reliably as the operating system.</blockquote>
+          <p>Local models change the economics. Once the hardware is there, the marginal cost of a small request is close to the electricity it uses. They also improve latency and keep personal context on the device. An agent that understands my files, messages, routines and devices becomes much more useful—and much more sensitive. Local processing creates a stronger default boundary for that information.</p>
+          <p>The practical answer will probably be hybrid. A small local model can interpret commands, route work, use tools and handle private context. A larger cloud model can be called when a task truly needs deeper reasoning or broad knowledge. The user should be able to see which boundary is being crossed and decide whether the benefit is worth it.</p>
+          <div class="article-note"><span>A useful split</span><p>Local for frequent, private and low-latency actions. Cloud for occasional work where the capability gain is meaningful. The product should make that choice visible instead of silently uploading everything.</p></div>
+
+          <h2 id="trust">Transactions are a different trust boundary</h2>
+          <p>Giving an agent access to a playlist is one thing. Giving it access to a payment card is another. Agents still need significant development before I would trust them to complete open-ended transactions without a very clear approval layer.</p>
+          <p>The risk is not only a model making a strange choice. Instructions can be hidden inside webpages or documents. A service can present a misleading option. The agent can misunderstand currency, quantity, delivery date or cancellation terms. A small error in a text summary is annoying; the same error in a purchase is real money.</p>
+          <p>A trustworthy transaction agent needs more than a smart model:</p>
+          <ul>
+            <li>Strict limits on merchant, amount, category and frequency.</li>
+            <li>A separate confirmation screen showing the exact action in plain language.</li>
+            <li>Payment tokens that reveal less than the underlying card details.</li>
+            <li>An audit trail explaining what the agent saw and why it chose the action.</li>
+            <li>A reliable way to stop, reverse or dispute a transaction.</li>
+          </ul>
+          <p>High-impact permissions should be narrow and temporary. “Buy this exact item for up to €40” is a much safer instruction than “handle my shopping.” Trust will grow through constrained successes, not by asking people to surrender control all at once.</p>
+
+          <h2 id="coding">Coding agents are already something else</h2>
+          <p>Coding agents are the category that changed my expectations fastest. They are genuinely impressive because software development gives the agent an unusually good environment for learning from its own work. Code can be searched, compiled, tested and compared. Errors return structured feedback. Version control makes changes inspectable and reversible.</p>
+          <p>A strong coding agent can understand an unfamiliar codebase, trace behavior across files, implement a feature and run the checks that show whether it worked. It still needs direction and review, especially around product decisions and subtle architecture. But the amount of complete work it can carry is remarkable.</p>
+          <p>The biggest advantage is not raw typing speed. It is continuity. The agent can hold the whole task in view while performing dozens of small steps that would normally interrupt a developer’s thinking. That lets the person spend more attention on the system, the user and the tradeoffs.</p>
+          <p>Coding also shows what other agent environments are missing: clear tools, reversible actions, automated verification and a record of every change. If we want trustworthy agents in finance, operations or personal computing, we should build those same properties into their environments.</p>
+
+          <h2 id="interface">Agents are becoming a new interface layer</h2>
+          <p>Graphical interfaces will not disappear. Sometimes a button, timeline or map is the clearest way to understand and control a system. Agents add a layer above them: a way to express intent, delegate execution and ask the computer to bridge applications that do not cooperate well.</p>
+          <p>The best products will combine both. Tell the agent what you want, then use a precise interface to inspect, correct or approve the result. Natural language is excellent for goals and exceptions. Structured interfaces are excellent for state, comparison and commitment.</p>
+          <p>For agents to become a long-term success, they need to earn a place in everyday computing. That means local capability, understandable costs, permission boundaries, reversible actions and honest signals when the system is uncertain. The intelligence is already impressive. Now the surrounding engineering has to make it trustworthy.</p>
+
+          <div class="article-end"><div class="kicker">End signal / 003</div><p>I am most interested in agents that connect digital intelligence with real systems—code, devices and embedded products—without hiding control from the person using them.</p></div>
+        </div>
+      </div>
+    </article>
+    <aside class="next-article shell"><div class="kicker">Next signal / 004</div><a href="/blog/drone-delivery-default.html"><h2>Drone delivery should become boring infrastructure</h2><span class="idea-link">Continue reading</span></a></aside>
+    <section class="contact shell"><div class="contact-panel reveal"><div class="kicker">Continue the signal</div><h2>Building useful agents?</h2><div class="contact-actions"><a href="mailto:ivan@ivanbegonja.com?subject=AI agents">Let’s talk ↗</a><a href="/blog/">All ideas</a></div></div><footer class="footer"><span>© <span data-year></span> Ivan Begonja</span><span>Ideas &amp; signals / Field note 003</span><span>Zadar, Croatia</span></footer></section>
+  </main>
+</body>
+</html>

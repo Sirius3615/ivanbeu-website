@@ -20,6 +20,7 @@ const files = [
   'css',
   'js',
   'assets',
+  'blog',
   'projects',
 ];
 

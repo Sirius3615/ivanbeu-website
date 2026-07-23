@@ -33,4 +33,16 @@ document.addEventListener('DOMContentLoaded', () => {
       || (today.getMonth() + 1 === birthMonth && today.getDate() >= birthDay);
     element.textContent = today.getFullYear() - birthYear - (birthdayHasPassed ? 0 : 1);
   });
+
+  const progress = document.querySelector('[data-reading-progress]');
+  if (progress) {
+    const updateProgress = () => {
+      const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+      const percentage = scrollable > 0 ? Math.min(100, (window.scrollY / scrollable) * 100) : 0;
+      progress.style.setProperty('--reading-progress', `${percentage}%`);
+    };
+    updateProgress();
+    window.addEventListener('scroll', updateProgress, { passive: true });
+    window.addEventListener('resize', updateProgress);
+  }
 });
